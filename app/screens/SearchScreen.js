@@ -21,7 +21,10 @@ export default class SearchScreen extends Component {
     this.setState({ [key]: value });
   };
 
-  handleSubmit = () => {};
+  handleSubmit = () => {
+    const { navigation } = this.props;
+    navigation.navigate('Results');
+  };
 
   handleLogout = () => {};
 

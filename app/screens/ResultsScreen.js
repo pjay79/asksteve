@@ -1,10 +1,31 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from 'react';
+import { SafeAreaView, View, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+import Button from '../components/Button';
 
-const ResultsScreen = () => (
-  <View>
-    <Text>Results Screen</Text>
-  </View>
-);
+export default class ResultsScreen extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+    }).isRequired,
+  };
 
-export default ResultsScreen;
+  handleLogout = () => {};
+
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View />
+        <Button title="Logout" onPress={this.handleLogout} />
+      </SafeAreaView>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+});
