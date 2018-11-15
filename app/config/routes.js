@@ -1,17 +1,11 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import HomeScreen from '../screens/HomeScreen';
 import LoadingScreen from '../screens/LoadingScreen';
 import SearchScreen from '../screens/SearchScreen';
 import ResultsScreen from '../screens/ResultsScreen';
 
-const MainNavigator = createStackNavigator(
+const AppStack = createStackNavigator(
   {
-    Loading: {
-      screen: LoadingScreen,
-      navigationOptions: {
-        header: null,
-      },
-    },
     Home: {
       screen: HomeScreen,
       navigationOptions: {
@@ -41,8 +35,21 @@ const MainNavigator = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'Loading',
+    initialRouteName: 'Home',
   },
 );
 
-export default MainNavigator;
+export default createSwitchNavigator(
+  {
+    Loading: {
+      screen: LoadingScreen,
+      navigationOptions: {
+        header: null,
+      },
+    },
+    App: AppStack,
+  },
+  {
+    initialRouteName: 'Loading',
+  },
+);

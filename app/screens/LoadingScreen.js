@@ -17,7 +17,7 @@ export default class LoadingScreen extends Component {
       if (token) {
         navigation.navigate('Search');
       } else {
-        navigation.navigate('Home');
+        navigation.navigate('App');
       }
     } catch (error) {
       console.log(error);
