@@ -2,7 +2,7 @@
 
 ## Issues
 
-- webauth does not fully clear session and logout, adding prompt:login to auth0.webauth.authorize forces login from Home after logout
+- webauth does not fully clear session on logout, workaround via adding prompt:login to auth0.webauth.authorize to force login from Home after logout
 - after successful webauth login, redirect result in brief unecessary Home screen flash before going to Search screen
 
 ## ToDo
