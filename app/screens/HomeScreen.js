@@ -3,7 +3,7 @@ import {
   SafeAreaView, View, Text, Image, StyleSheet, AsyncStorage,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import auth0 from '../services/Auth';
+import auth0 from '../services/auth0';
 import Button from '../components/Button';
 
 export default class HomeScreen extends Component {

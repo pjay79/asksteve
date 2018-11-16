@@ -3,7 +3,8 @@ import {
   SafeAreaView, View, Text, StyleSheet, Platform, AsyncStorage,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import auth0 from '../services/Auth';
+import auth0 from '../services/auth0';
+import gitSearch from '../services/gitSearch';
 import Button from '../components/Button';
 import Input from '../components/Input';
 
@@ -16,15 +17,24 @@ export default class SearchScreen extends Component {
 
   state = {
     searchTerm: 'facebook/react-native',
+    results: [],
   };
 
   handleChangeText = (key, value) => {
     this.setState({ [key]: value });
   };
 
-  handleSubmit = () => {
-    const { navigation } = this.props;
-    navigation.navigate('Results');
+  handleSubmit = async () => {
+    try {
+      const { searchTerm } = this.state;
+      const response = await gitSearch(searchTerm);
+      this.setState({ results: response.data.items }, () => {
+        const { results } = this.state;
+        console.log(results);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   handleLogout = async () => {
@@ -93,5 +103,11 @@ const styles = StyleSheet.create({
   },
   searchWrapper: {
     alignItems: 'center',
+  },
+  searchContainer: {
+    backgroundColor: 'red',
+  },
+  searchInput: {
+    backgroundColor: 'green',
   },
 });

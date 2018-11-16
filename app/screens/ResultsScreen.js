@@ -3,7 +3,7 @@ import {
   SafeAreaView, View, StyleSheet, AsyncStorage, Platform,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import auth0 from '../services/Auth';
+import auth0 from '../services/auth0';
 import Button from '../components/Button';
 
 export default class ResultsScreen extends Component {
