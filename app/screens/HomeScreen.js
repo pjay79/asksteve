@@ -3,20 +3,31 @@ import {
   SafeAreaView, View, Text, Image, StyleSheet, AsyncStorage,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import Config from 'react-native-config';
-import Auth0 from 'react-native-auth0';
+import auth0 from '../services/Auth';
 import Button from '../components/Button';
-
-const auth0 = new Auth0({
-  domain: Config.AUTH0_DOMAIN,
-  clientId: Config.AUTH0_CLIENT_ID,
-});
 
 export default class HomeScreen extends Component {
   static propTypes = {
     navigation: PropTypes.shape({
       navigate: PropTypes.func.isRequired,
     }).isRequired,
+  };
+
+  componentDidMount() {
+    // this.checkToken();
+  }
+
+  checkToken = async () => {
+    try {
+      const { navigation } = this.props;
+      const token = await AsyncStorage.getItem('accessToken');
+      console.log('token: ', token);
+      if (token) {
+        navigation.navigate('Search');
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   handleLogin = () => {

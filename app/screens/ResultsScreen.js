@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, StyleSheet } from 'react-native';
+import {
+  SafeAreaView, View, StyleSheet, AsyncStorage,
+} from 'react-native';
 import PropTypes from 'prop-types';
+import auth0 from '../services/Auth';
 import Button from '../components/Button';
 
 export default class ResultsScreen extends Component {
@@ -10,9 +13,15 @@ export default class ResultsScreen extends Component {
     }).isRequired,
   };
 
-  handleLogout = () => {
+  handleLogout = async () => {
     const { navigation } = this.props;
-    navigation.navigate('Home');
+    try {
+      await AsyncStorage.removeItem('accessToken');
+      await auth0.webAuth.clearSession();
+      navigation.navigate('Home');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
