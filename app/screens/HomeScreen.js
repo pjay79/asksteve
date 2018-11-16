@@ -36,6 +36,7 @@ export default class HomeScreen extends Component {
       .authorize({
         scope: 'openid profile email',
         audience: 'https://asksteve.au.auth0.com/userinfo',
+        prompt: 'login',
       })
       .then((credentials) => {
         console.log(credentials);
