@@ -26,7 +26,10 @@ export default class SearchScreen extends Component {
     navigation.navigate('Results');
   };
 
-  handleLogout = () => {};
+  handleLogout = () => {
+    const { navigation } = this.props;
+    navigation.navigate('Home');
+  };
 
   render() {
     const { searchTerm } = this.state;

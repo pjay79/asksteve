@@ -6,12 +6,6 @@ import ResultsScreen from '../screens/ResultsScreen';
 
 const AppStack = createStackNavigator(
   {
-    Home: {
-      screen: HomeScreen,
-      navigationOptions: {
-        header: null,
-      },
-    },
     Search: {
       screen: SearchScreen,
       navigationOptions: {
@@ -35,7 +29,7 @@ const AppStack = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Search',
   },
 );
 
@@ -43,6 +37,12 @@ export default createSwitchNavigator(
   {
     Loading: {
       screen: LoadingScreen,
+      navigationOptions: {
+        header: null,
+      },
+    },
+    Home: {
+      screen: HomeScreen,
       navigationOptions: {
         header: null,
       },
