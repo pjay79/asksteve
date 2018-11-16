@@ -10,7 +10,10 @@ export default class ResultsScreen extends Component {
     }).isRequired,
   };
 
-  handleLogout = () => {};
+  handleLogout = () => {
+    const { navigation } = this.props;
+    navigation.navigate('Home');
+  };
 
   render() {
     return (
