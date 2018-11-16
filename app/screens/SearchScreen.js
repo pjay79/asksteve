@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {
-  SafeAreaView, View, Text, StyleSheet,
+  SafeAreaView, View, Text, StyleSheet, AsyncStorage,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import auth0 from '../services/Auth';
 import Button from '../components/Button';
 import Input from '../components/Input';
 
@@ -26,9 +27,15 @@ export default class SearchScreen extends Component {
     navigation.navigate('Results');
   };
 
-  handleLogout = () => {
+  handleLogout = async () => {
     const { navigation } = this.props;
-    navigation.navigate('Home');
+    try {
+      await AsyncStorage.removeItem('accessToken');
+      await auth0.webAuth.clearSession();
+      navigation.navigate('Home');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
