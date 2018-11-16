@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  SafeAreaView, View, StyleSheet, AsyncStorage, Platform,
+  SafeAreaView, View, Text, StyleSheet, AsyncStorage, Platform,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import auth0 from '../services/auth0';
@@ -27,10 +27,17 @@ export default class ResultsScreen extends Component {
   };
 
   render() {
+    const { navigation } = this.props;
+    const repo = navigation.getParam('repo');
     return (
       <SafeAreaView style={styles.container}>
-        <View />
-        <Button title="Logout" onPress={this.handleLogout} />
+        <View>
+          <Text>{repo.name}</Text>
+          <Text>{repo.owner.login}</Text>
+        </View>
+        <View>
+          <Button title="Logout" onPress={this.handleLogout} />
+        </View>
       </SafeAreaView>
     );
   }

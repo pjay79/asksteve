@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Platform,
   AsyncStorage,
+  TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -59,18 +60,27 @@ export default class SearchScreen extends Component {
 
   keyExtractor = item => item.id.toString();
 
-  renderItem = ({ item }) => (
-    <View style={styles.card}>
-      <View style={styles.cardDetailsWrapper}>
-        <Text style={styles.cardDetailsTitleText}>{item.name}</Text>
-        <Text style={styles.cardDetailsLanguageText}>{item.language}</Text>
-      </View>
-      <View style={styles.cardCountWrapper}>
-        <Text style={styles.cardCountText}>{item.stargazers_count}</Text>
-        <Ionicons name={Platform.OS === 'ios' ? 'ios-star' : 'md-star'} size={18} color="#F7CF66" />
-      </View>
-    </View>
-  );
+  renderItem = ({ item }) => {
+    const { navigation } = this.props;
+    return (
+      <TouchableOpacity onPress={() => navigation.navigate('Results', { repo: item })}>
+        <View style={styles.card}>
+          <View style={styles.cardDetailsWrapper}>
+            <Text style={styles.cardDetailsTitleText}>{item.name}</Text>
+            <Text style={styles.cardDetailsLanguageText}>{item.language}</Text>
+          </View>
+          <View style={styles.cardCountWrapper}>
+            <Text style={styles.cardCountText}>{item.stargazers_count}</Text>
+            <Ionicons
+              name={Platform.OS === 'ios' ? 'ios-star' : 'md-star'}
+              size={18}
+              color="#F7CF66"
+            />
+          </View>
+        </View>
+      </TouchableOpacity>
+    );
+  };
 
   renderSeparator = () => <View style={styles.separator} />;
 
@@ -133,7 +143,7 @@ const styles = StyleSheet.create({
   cardDetailsTitleText: {
     fontSize: 14,
     letterSpacing: 1,
-    fontWeight: '500',
+    fontWeight: '600',
   },
   cardDetailsLanguageText: {
     fontSize: 10,
