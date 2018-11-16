@@ -25,7 +25,7 @@
           <category android:name="android.intent.category.DEFAULT" />
           <category android:name="android.intent.category.BROWSABLE" />
           <data
-              android:host="YOUR_AUTH0_DOMAIN"
+              android:host="asksteve.au.auth0.com"
               android:pathPrefix="/android/${applicationId}/callback"
               android:scheme="${applicationId}" />
       </intent-filter>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  SafeAreaView, View, Text, StyleSheet, AsyncStorage,
+  SafeAreaView, View, Text, StyleSheet, Platform, AsyncStorage,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import auth0 from '../services/Auth';
@@ -31,7 +31,9 @@ export default class SearchScreen extends Component {
     const { navigation } = this.props;
     try {
       await AsyncStorage.removeItem('accessToken');
-      await auth0.webAuth.clearSession();
+      if (Platform.os === 'ios') {
+        await auth0.webAuth.clearSession();
+      }
       navigation.navigate('Home');
     } catch (error) {
       console.log(error);
