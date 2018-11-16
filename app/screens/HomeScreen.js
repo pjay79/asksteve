@@ -13,22 +13,22 @@ export default class HomeScreen extends Component {
     }).isRequired,
   };
 
-  componentDidMount() {
-    // this.checkToken();
-  }
+  // componentDidMount() {
+  //   this.checkToken();
+  // }
 
-  checkToken = async () => {
-    try {
-      const { navigation } = this.props;
-      const token = await AsyncStorage.getItem('accessToken');
-      console.log('token: ', token);
-      if (token) {
-        navigation.navigate('Search');
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // checkToken = async () => {
+  //   try {
+  //     const { navigation } = this.props;
+  //     const token = await AsyncStorage.getItem('accessToken');
+  //     console.log('token: ', token);
+  //     if (token) {
+  //       navigation.navigate('Search');
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   handleLogin = () => {
     const { navigation } = this.props;

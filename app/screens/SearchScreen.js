@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import {
-  SafeAreaView, View, Text, StyleSheet, Platform, AsyncStorage,
+  SafeAreaView,
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  Platform,
+  AsyncStorage,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import auth0 from '../services/auth0';
 import gitSearch from '../services/gitSearch';
 import Button from '../components/Button';
@@ -38,8 +45,8 @@ export default class SearchScreen extends Component {
   };
 
   handleLogout = async () => {
-    const { navigation } = this.props;
     try {
+      const { navigation } = this.props;
       await AsyncStorage.removeItem('accessToken');
       if (Platform.os === 'ios') {
         await auth0.webAuth.clearSession();
@@ -50,31 +57,49 @@ export default class SearchScreen extends Component {
     }
   };
 
+  keyExtractor = item => item.id.toString();
+
+  renderItem = ({ item }) => (
+    <View style={styles.card}>
+      <View style={styles.cardDetailsWrapper}>
+        <Text style={styles.cardDetailsTitleText}>{item.name}</Text>
+        <Text style={styles.cardDetailsLanguageText}>{item.language}</Text>
+      </View>
+      <View style={styles.cardCountWrapper}>
+        <Text style={styles.cardCountText}>{item.stargazers_count}</Text>
+        <Ionicons name={Platform.OS === 'ios' ? 'ios-star' : 'md-star'} size={18} color="#F7CF66" />
+      </View>
+    </View>
+  );
+
+  renderSeparator = () => <View style={styles.separator} />;
+
   render() {
-    const { searchTerm } = this.state;
+    const { searchTerm, results } = this.state;
     return (
       <SafeAreaView style={styles.container}>
-        <View style={styles.headerWrapper}>
-          <Text style={styles.headerText}>Welcome to GitSearch</Text>
-          <Text style={styles.secondaryText}>
-            Enter a repository name and press submit to start searching Github. Press Logout to
-            return to Home.
-          </Text>
-        </View>
-        <View style={styles.searchWrapper}>
+        <View style={styles.inputWrapper}>
           <Input
             placeholder="facebook/react-native"
             onChangeText={text => this.handleChangeText('searchTerm', text)}
             value={searchTerm}
           />
         </View>
-        <View>
+        <View style={styles.flatListWrapper}>
+          <FlatList
+            data={results}
+            renderItem={this.renderItem}
+            keyExtractor={this.keyExtractor}
+            ItemSeparatorComponent={this.renderSeparator}
+          />
+        </View>
+        <View style={styles.buttonWrapper}>
           <Button
             title="Submit"
             onPress={this.handleSubmit}
-            style={{ backgroundColor: '#4A90E2' }}
+            style={{ backgroundColor: '#4A90E2', marginRight: 5 }}
           />
-          <Button title="Logout" onPress={this.handleLogout} />
+          <Button title="Logout" onPress={this.handleLogout} style={{ marginLeft: 5 }} />
         </View>
       </SafeAreaView>
     );
@@ -86,28 +111,46 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: '#F5F5F5',
   },
-  headerWrapper: {
+  inputWrapper: {},
+  flatListWrapper: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  buttonWrapper: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+  },
+  card: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
   },
-  headerText: {
-    fontSize: 24,
-    fontWeight: '800',
-    marginTop: 20,
+  cardDetailsWrapper: {},
+  cardDetailsTitleText: {
+    fontSize: 14,
+    letterSpacing: 1,
+    fontWeight: '500',
   },
-  secondaryText: {
-    fontSize: 16,
-    fontWeight: '400',
-    marginTop: 10,
+  cardDetailsLanguageText: {
+    fontSize: 10,
+    fontWeight: '200',
+    fontStyle: 'italic',
   },
-  searchWrapper: {
+  cardCountWrapper: {
+    flexDirection: 'row',
     alignItems: 'center',
   },
-  searchContainer: {
-    backgroundColor: 'red',
+  cardCountText: {
+    fontWeight: '600',
+    fontSize: 10,
+    marginRight: 5,
   },
-  searchInput: {
-    backgroundColor: 'green',
+  separator: {
+    backgroundColor: '#BDBDBD',
+    height: StyleSheet.hairlineWidth,
   },
 });
