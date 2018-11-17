@@ -14,18 +14,18 @@ const AppStack = createStackNavigator(
         headerStyle: {
           backgroundColor: '#F7CF66',
         },
-        headerTintColor: '#FFFFFF',
+        headerTintColor: '#000000',
       },
     },
     Results: {
       screen: ResultsScreen,
-      navigationOptions: {
-        title: 'Results',
+      navigationOptions: ({ navigation }) => ({
+        title: navigation.getParam('repo').name,
         headerStyle: {
           backgroundColor: '#F7CF66',
         },
-        headerTintColor: '#FFFFFF',
-      },
+        headerTintColor: '#000000',
+      }),
     },
   },
   {
