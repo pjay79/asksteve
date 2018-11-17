@@ -5,6 +5,12 @@ import {
 import PropTypes from 'prop-types';
 
 export default class LoadingScreen extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+    }).isRequired,
+  };
+
   componentDidMount() {
     this.checkToken();
   }
@@ -41,9 +47,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#F7CF66',
   },
 });
-
-LoadingScreen.propTypes = {
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
-};
