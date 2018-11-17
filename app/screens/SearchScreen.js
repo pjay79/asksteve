@@ -12,7 +12,7 @@ import {
 import PropTypes from 'prop-types';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import auth0 from '../services/auth0';
-import gitSearch from '../services/gitSearch';
+import { gitSearch } from '../services/gitSearch';
 import Button from '../components/Button';
 import Input from '../components/Input';
 

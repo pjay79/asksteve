@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import auth0 from '../services/auth0';
+import { gitSearchCommits } from '../services/gitSearch';
 import Button from '../components/Button';
 
 export default class ResultsScreen extends Component {
@@ -11,6 +12,28 @@ export default class ResultsScreen extends Component {
     navigation: PropTypes.shape({
       navigate: PropTypes.func.isRequired,
     }).isRequired,
+  };
+
+  state = {
+    commits: [],
+  };
+
+  componentDidMount() {
+    this.getCommitDetails();
+  }
+
+  getCommitDetails = async () => {
+    try {
+      const { navigation } = this.props;
+      const repo = navigation.getParam('repo');
+      const response = await gitSearchCommits(repo.full_name);
+      this.setState({ commits: response.data.items }, () => {
+        const { commits } = this.state;
+        console.log(commits);
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   handleLogout = async () => {
