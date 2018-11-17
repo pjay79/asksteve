@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import {
-  SafeAreaView, View, Text, StyleSheet, AsyncStorage, Platform,
+  SafeAreaView,
+  View,
+  FlatList,
+  Text,
+  StyleSheet,
+  AsyncStorage,
+  Platform,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import auth0 from '../services/auth0';
@@ -49,17 +55,34 @@ export default class ResultsScreen extends Component {
     }
   };
 
+  keyExtractor = item => item.url;
+
+  renderItem = ({ item }) => (
+    <View style={styles.card}>
+      <View style={styles.cardDetailsWrapper}>
+        <Text style={styles.cardDetailsTitleText}>{item.commit.committer.name}</Text>
+        <Text style={styles.cardDetailsTitleText}>{item.commit.committer.date}</Text>
+        <Text style={styles.cardDetailsMessageText}>{item.commit.message}</Text>
+      </View>
+    </View>
+  );
+
+  renderSeparator = () => <View style={styles.separator} />;
+
   render() {
-    const { navigation } = this.props;
-    const repo = navigation.getParam('repo');
+    const { commits } = this.state;
     return (
       <SafeAreaView style={styles.container}>
-        <View>
-          <Text>{repo.name}</Text>
-          <Text>{repo.owner.login}</Text>
+        <View style={styles.flatListWrapper}>
+          <FlatList
+            data={commits}
+            renderItem={this.renderItem}
+            keyExtractor={this.keyExtractor}
+            ItemSeparatorComponent={this.renderSeparator}
+          />
         </View>
-        <View>
-          <Button title="Logout" onPress={this.handleLogout} />
+        <View style={styles.buttonWrapper}>
+          <Button title="Logout" onPress={this.handleLogout} style={{ marginLeft: 5 }} />
         </View>
       </SafeAreaView>
     );
@@ -71,5 +94,37 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
+    backgroundColor: '#F5F5F5',
+  },
+  inputWrapper: {},
+  flatListWrapper: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+  buttonWrapper: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+  },
+  card: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+  },
+  cardDetailsWrapper: {},
+  cardDetailsTitleText: {
+    fontSize: 14,
+    letterSpacing: 1,
+    fontWeight: '600',
+  },
+  cardDetailsMessageText: {
+    fontSize: 10,
+    fontWeight: '200',
+    fontStyle: 'italic',
+  },
+  separator: {
+    backgroundColor: '#BDBDBD',
+    height: StyleSheet.hairlineWidth,
   },
 });

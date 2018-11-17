@@ -5,6 +5,7 @@ import {
   Text,
   FlatList,
   StyleSheet,
+  Dimensions,
   Platform,
   AsyncStorage,
   TouchableOpacity,
@@ -15,6 +16,8 @@ import auth0 from '../services/auth0';
 import { gitSearch } from '../services/gitSearch';
 import Button from '../components/Button';
 import Input from '../components/Input';
+
+const { width } = Dimensions.get('window');
 
 export default class SearchScreen extends Component {
   static propTypes = {
@@ -138,6 +141,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 10,
     paddingVertical: 10,
+    width,
   },
   cardDetailsWrapper: {},
   cardDetailsTitleText: {

@@ -8,7 +8,10 @@
 ## ToDo
 
 - use react-native-auth0 Authentication API for login with passwordRealmGrant with custom form (1 screen for GitHub email, 1 screen for Github password - as per askSteve code challenge requirement)
-- connect to GitHub Search API to search commit details for repository in ResultsScreen
 - refactor components
 - testing
-- FlatList peformance
+- style ResultsScreen
+- add avatar
+- add message if search and commits are empty
+- pagination
+- fix FlatList peformance
