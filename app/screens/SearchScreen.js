@@ -94,6 +94,7 @@ export default class SearchScreen extends Component {
 
   render() {
     const { searchTerm, results, loading } = this.state;
+
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.inputWrapper}>
