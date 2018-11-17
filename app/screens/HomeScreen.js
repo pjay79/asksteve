@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  SafeAreaView, View, Text, Image, StyleSheet, AsyncStorage,
+  SafeAreaView, View, Text, Image, StyleSheet, AsyncStorage, Linking,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import auth0 from '../services/auth0';
@@ -13,22 +13,18 @@ export default class HomeScreen extends Component {
     }).isRequired,
   };
 
-  // componentDidMount() {
-  //   this.checkToken();
-  // }
+  componentDidMount() {
+    Linking.addEventListener('url', this.handleOpenURL);
+  }
 
-  // checkToken = async () => {
-  //   try {
-  //     const { navigation } = this.props;
-  //     const token = await AsyncStorage.getItem('accessToken');
-  //     console.log('token: ', token);
-  //     if (token) {
-  //       navigation.navigate('Search');
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  componentWillUnmount() {
+    Linking.removeEventListener('url', this.handleOpenURL);
+  }
+
+  handleOpenURL = () => {
+    const { navigation } = this.props;
+    navigation.navigate('Search');
+  };
 
   handleLogin = () => {
     const { navigation } = this.props;
