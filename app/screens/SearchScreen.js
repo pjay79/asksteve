@@ -9,6 +9,7 @@ import {
   Platform,
   AsyncStorage,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -29,6 +30,7 @@ export default class SearchScreen extends Component {
   state = {
     searchTerm: 'facebook/react-native',
     results: [],
+    loading: false,
   };
 
   handleChangeText = (key, value) => {
@@ -37,14 +39,17 @@ export default class SearchScreen extends Component {
 
   handleSubmit = async () => {
     try {
+      this.setState({ loading: true });
       const { searchTerm } = this.state;
       const response = await gitSearch(searchTerm);
       this.setState({ results: response.data.items }, () => {
         const { results } = this.state;
         console.log(results);
+        this.setState({ loading: false });
       });
     } catch (error) {
       console.log(error);
+      this.setState({ loading: false });
     }
   };
 
@@ -88,7 +93,7 @@ export default class SearchScreen extends Component {
   renderSeparator = () => <View style={styles.separator} />;
 
   render() {
-    const { searchTerm, results } = this.state;
+    const { searchTerm, results, loading } = this.state;
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.inputWrapper}>
@@ -98,14 +103,18 @@ export default class SearchScreen extends Component {
             value={searchTerm}
           />
         </View>
-        <View style={styles.flatListWrapper}>
-          <FlatList
-            data={results}
-            renderItem={this.renderItem}
-            keyExtractor={this.keyExtractor}
-            ItemSeparatorComponent={this.renderSeparator}
-          />
-        </View>
+        {loading ? (
+          <ActivityIndicator color="#000000" />
+        ) : (
+          <View style={styles.flatListWrapper}>
+            <FlatList
+              data={results}
+              renderItem={this.renderItem}
+              keyExtractor={this.keyExtractor}
+              ItemSeparatorComponent={this.renderSeparator}
+            />
+          </View>
+        )}
         <View style={styles.buttonWrapper}>
           <Button
             title="Submit"

@@ -9,6 +9,7 @@ import {
   Dimensions,
   AsyncStorage,
   Platform,
+  ActivityIndicator,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -27,6 +28,7 @@ export default class ResultsScreen extends Component {
 
   state = {
     commits: [],
+    loading: false,
   };
 
   componentDidMount() {
@@ -35,15 +37,18 @@ export default class ResultsScreen extends Component {
 
   getCommitDetails = async () => {
     try {
+      this.setState({ loading: true });
       const { navigation } = this.props;
       const repo = navigation.getParam('repo');
       const response = await gitSearchCommits(repo.full_name);
       this.setState({ commits: response.data.items }, () => {
         const { commits } = this.state;
         console.log(commits);
+        this.setState({ loading: false });
       });
     } catch (error) {
       console.log(error);
+      this.setState({ loading: false });
     }
   };
 
@@ -82,17 +87,23 @@ export default class ResultsScreen extends Component {
   renderSeparator = () => <View style={styles.separator} />;
 
   render() {
-    const { commits } = this.state;
+    const { commits, loading } = this.state;
     return (
       <SafeAreaView style={styles.container}>
-        <View style={styles.flatListWrapper}>
-          <FlatList
-            data={commits}
-            renderItem={this.renderItem}
-            keyExtractor={this.keyExtractor}
-            ItemSeparatorComponent={this.renderSeparator}
-          />
-        </View>
+        {loading ? (
+          <View style={styles.loadingWrapper}>
+            <ActivityIndicator color="#000000" />
+          </View>
+        ) : (
+          <View style={styles.flatListWrapper}>
+            <FlatList
+              data={commits}
+              renderItem={this.renderItem}
+              keyExtractor={this.keyExtractor}
+              ItemSeparatorComponent={this.renderSeparator}
+            />
+          </View>
+        )}
         <View style={styles.buttonWrapper}>
           <Button title="Logout" onPress={this.handleLogout} style={{ marginLeft: 5 }} />
         </View>
@@ -107,6 +118,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#F5F5F5',
+  },
+  loadingWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   flatListWrapper: {
     flex: 1,
