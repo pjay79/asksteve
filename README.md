@@ -12,6 +12,7 @@
 - testing
 - style ResultsScreen
 - add avatar
+- add loading indicator
 - add message if search and commits are empty
 - pagination
 - fix FlatList peformance

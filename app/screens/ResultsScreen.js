@@ -4,6 +4,7 @@ import {
   View,
   FlatList,
   Text,
+  Image,
   StyleSheet,
   AsyncStorage,
   Platform,
@@ -60,13 +61,19 @@ export default class ResultsScreen extends Component {
 
   renderItem = ({ item }) => (
     <View style={styles.card}>
-      <View style={styles.cardDetailsWrapper}>
-        <Text style={styles.cardDetailsTitleText}>{item.commit.committer.name}</Text>
-        <Text style={styles.cardDetailsTitleText}>
-          {moment(item.commit.committer.date).format('MMMM Do YYYY, h:mm:ss a')}
-        </Text>
-        <Text style={styles.cardDetailsMessageText}>{item.commit.message}</Text>
+      <View style={styles.cardHeaderWrapper}>
+        <View style={styles.cardHeaderDetails}>
+          <Text style={styles.cardDetailsTitleText}>{item.commit.author.name}</Text>
+          <Text style={styles.cardDetailsDateText}>
+            {moment(item.commit.committer.date).format('MMMM Do YYYY')}
+          </Text>
+        </View>
+        <Image
+          style={styles.cardHeaderImage}
+          source={{ uri: 'https://avatars0.githubusercontent.com/u/12009276?v=4' }}
+        />
       </View>
+      <Text style={styles.cardDetailsMessageText}>{item.commit.message}</Text>
     </View>
   );
 
@@ -99,7 +106,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5F5F5',
   },
-  inputWrapper: {},
   flatListWrapper: {
     flex: 1,
     justifyContent: 'space-between',
@@ -107,22 +113,40 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     flexDirection: 'row',
     alignItems: 'flex-end',
+    marginTop: 5,
   },
   card: {
-    flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 10,
     paddingVertical: 10,
   },
-  cardDetailsWrapper: {},
+  cardHeaderWrapper: {
+    flexDirection: 'row',
+    backgroundColor: '#4A90E2',
+    padding: 10,
+    marginVertical: 10,
+    borderRadius: 4,
+  },
+  cardHeaderDetails: {
+    flex: 1,
+  },
+  cardHeaderImage: {
+    width: 25,
+    height: 25,
+  },
   cardDetailsTitleText: {
-    fontSize: 14,
+    fontSize: 18,
     letterSpacing: 1,
+    fontWeight: '800',
+  },
+  cardDetailsDateText: {
+    fontSize: 10,
     fontWeight: '600',
+    color: '#FFFFFF',
   },
   cardDetailsMessageText: {
-    fontSize: 10,
+    fontSize: 12,
     fontWeight: '200',
   },
   separator: {

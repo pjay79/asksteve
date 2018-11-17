@@ -134,6 +134,7 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     flexDirection: 'row',
     alignItems: 'flex-end',
+    marginTop: 5,
   },
   card: {
     flexDirection: 'row',
