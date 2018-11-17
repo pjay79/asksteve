@@ -9,6 +9,7 @@ import {
   Platform,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 import auth0 from '../services/auth0';
 import { gitSearchCommits } from '../services/gitSearch';
 import Button from '../components/Button';
@@ -61,7 +62,9 @@ export default class ResultsScreen extends Component {
     <View style={styles.card}>
       <View style={styles.cardDetailsWrapper}>
         <Text style={styles.cardDetailsTitleText}>{item.commit.committer.name}</Text>
-        <Text style={styles.cardDetailsTitleText}>{item.commit.committer.date}</Text>
+        <Text style={styles.cardDetailsTitleText}>
+          {moment(item.commit.committer.date).format('MMMM Do YYYY, h:mm:ss a')}
+        </Text>
         <Text style={styles.cardDetailsMessageText}>{item.commit.message}</Text>
       </View>
     </View>
@@ -121,7 +124,6 @@ const styles = StyleSheet.create({
   cardDetailsMessageText: {
     fontSize: 10,
     fontWeight: '200',
-    fontStyle: 'italic',
   },
   separator: {
     backgroundColor: '#BDBDBD',
