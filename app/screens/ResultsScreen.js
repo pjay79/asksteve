@@ -6,6 +6,7 @@ import {
   Text,
   Image,
   StyleSheet,
+  Dimensions,
   AsyncStorage,
   Platform,
 } from 'react-native';
@@ -14,6 +15,8 @@ import moment from 'moment';
 import auth0 from '../services/auth0';
 import { gitSearchCommits } from '../services/gitSearch';
 import Button from '../components/Button';
+
+const { width } = Dimensions.get('window');
 
 export default class ResultsScreen extends Component {
   static propTypes = {
@@ -68,10 +71,9 @@ export default class ResultsScreen extends Component {
             {moment(item.commit.committer.date).format('MMMM Do YYYY')}
           </Text>
         </View>
-        <Image
-          style={styles.cardHeaderImage}
-          source={{ uri: 'https://avatars0.githubusercontent.com/u/12009276?v=4' }}
-        />
+        {item.author && (
+          <Image style={styles.cardHeaderImage} source={{ uri: `${item.author.avatar_url}` }} />
+        )}
       </View>
       <Text style={styles.cardDetailsMessageText}>{item.commit.message}</Text>
     </View>
@@ -120,6 +122,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 10,
     paddingVertical: 10,
+    width,
   },
   cardHeaderWrapper: {
     flexDirection: 'row',
@@ -128,12 +131,13 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     borderRadius: 4,
   },
-  cardHeaderDetails: {
-    flex: 1,
-  },
+  cardHeaderDetails: { flex: 1 },
   cardHeaderImage: {
     width: 25,
     height: 25,
+    borderRadius: 4,
+    borderWidth: 2,
+    borderColor: '#FFFFFF',
   },
   cardDetailsTitleText: {
     fontSize: 18,
