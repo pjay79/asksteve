@@ -62,13 +62,11 @@ export default class PasswordScreen extends Component {
         <View style={styles.error}>
           <Text>{error}</Text>
         </View>
-        <View style={styles.buttonWrapper}>
-          <Button
-            title="Submit"
-            onPress={this.handlePasswordRealm}
-            style={{ backgroundColor: COLORS.PRIMARY_COLOR }}
-          />
-        </View>
+        <Button
+          title="Submit"
+          onPress={this.handlePasswordRealm}
+          style={{ backgroundColor: COLORS.PRIMARY_COLOR }}
+        />
       </SafeAreaView>
     );
   }

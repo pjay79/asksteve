@@ -30,13 +30,11 @@ export default class LoginScreen extends Component {
           onChangeText={text => this.handleChangeText('login', text)}
           value={login}
         />
-        <View style={styles.buttonWrapper}>
-          <Button
-            title="Next"
-            onPress={() => navigation.navigate('Password', { login })}
-            style={{ backgroundColor: COLORS.PRIMARY_COLOR }}
-          />
-        </View>
+        <Button
+          title="Next"
+          onPress={() => navigation.navigate('Password', { login })}
+          style={{ backgroundColor: COLORS.PRIMARY_COLOR }}
+        />
       </SafeAreaView>
     );
   }
