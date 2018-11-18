@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import {
-  SafeAreaView, View, Text, StyleSheet, ActivityIndicator,
+  SafeAreaView, View, Text, StyleSheet,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import auth0 from '../services/auth0';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import Loading from '../components/Loading';
 import * as COLORS from '../config/colors';
 
 export default class PasswordScreen extends Component {
@@ -57,11 +58,7 @@ export default class PasswordScreen extends Component {
           value={password}
           secureTextEntry
         />
-        {loading && (
-          <View style={styles.loadingWrapper}>
-            <ActivityIndicator color={COLORS.BLACK_COLOR} />
-          </View>
-        )}
+        {loading && <Loading />}
         <View style={styles.error}>
           <Text>{error}</Text>
         </View>
@@ -85,12 +82,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.BACKGROUND_COLOR,
   },
   error: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginTop: 20,
-  },
-  loadingWrapper: {
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',

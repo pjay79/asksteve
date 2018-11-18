@@ -9,13 +9,13 @@ import {
   Dimensions,
   AsyncStorage,
   Platform,
-  ActivityIndicator,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import auth0 from '../services/auth0';
 import { gitSearchCommits } from '../services/gitSearch';
 import Button from '../components/Button';
+import Loading from '../components/Loading';
 import * as COLORS from '../config/colors';
 
 const { width } = Dimensions.get('window');
@@ -92,9 +92,7 @@ export default class ResultsScreen extends Component {
     return (
       <SafeAreaView style={styles.container}>
         {loading ? (
-          <View style={styles.loadingWrapper}>
-            <ActivityIndicator color={COLORS.BLACK_COLOR} />
-          </View>
+          <Loading />
         ) : (
           <View style={styles.flatListWrapper}>
             <FlatList
@@ -119,11 +117,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: COLORS.BACKGROUND_COLOR,
-  },
-  loadingWrapper: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   flatListWrapper: {
     flex: 1,
