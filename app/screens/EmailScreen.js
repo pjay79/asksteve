@@ -26,7 +26,7 @@ export default class EmailScreen extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <Input
-          placeholder="Enter your github email"
+          placeholder="Enter your github username or email"
           onChangeText={text => this.handleChangeText('email', text)}
           value={email}
         />

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, StyleSheet } from 'react-native';
+import {
+  SafeAreaView, View, Text, StyleSheet,
+} from 'react-native';
 import PropTypes from 'prop-types';
 import auth0 from '../services/auth0';
 import Button from '../components/Button';
@@ -15,6 +17,7 @@ export default class PasswordScreen extends Component {
 
   state = {
     password: '',
+    error: '',
   };
 
   handleChangeText = (key, value) => {
@@ -37,11 +40,12 @@ export default class PasswordScreen extends Component {
       navigation.navigate('AppStack');
     } catch (error) {
       console.log(error.message);
+      this.setState({ error: error.message });
     }
   };
 
   render() {
-    const { password } = this.state;
+    const { password, error } = this.state;
     return (
       <SafeAreaView style={styles.container}>
         <Input
@@ -50,6 +54,9 @@ export default class PasswordScreen extends Component {
           value={password}
           secureTextEntry
         />
+        <View style={styles.error}>
+          <Text>{error}</Text>
+        </View>
         <View style={styles.buttonWrapper}>
           <Button
             title="Submit"
@@ -68,5 +75,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: COLORS.BACKGROUND_COLOR,
+  },
+  error: {
+    flex: 1,
+    alignItems: 'center',
+    marginTop: 20,
+    width: '100%',
   },
 });
