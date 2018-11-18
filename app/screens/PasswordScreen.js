@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  SafeAreaView, View, Text, StyleSheet,
+  SafeAreaView, View, Text, StyleSheet, ActivityIndicator,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import auth0 from '../services/auth0';
@@ -18,6 +18,7 @@ export default class PasswordScreen extends Component {
   state = {
     password: '',
     error: '',
+    loading: false,
   };
 
   handleChangeText = (key, value) => {
@@ -26,6 +27,7 @@ export default class PasswordScreen extends Component {
 
   handlePasswordRealm = async () => {
     try {
+      this.setState({ loading: true });
       const { password } = this.state;
       const { navigation } = this.props;
       const login = navigation.getParam('login');
@@ -37,15 +39,16 @@ export default class PasswordScreen extends Component {
         client_id: 'BGleraAIRgOTzjNcEF7hszJEhpMBUn4n',
         grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
       });
+      this.setState({ loading: true });
       navigation.navigate('AppStack');
     } catch (error) {
       console.log(error.message);
-      this.setState({ error: error.message });
+      this.setState({ error: error.message, loading: false });
     }
   };
 
   render() {
-    const { password, error } = this.state;
+    const { password, error, loading } = this.state;
     return (
       <SafeAreaView style={styles.container}>
         <Input
@@ -54,6 +57,11 @@ export default class PasswordScreen extends Component {
           value={password}
           secureTextEntry
         />
+        {loading && (
+          <View style={styles.loadingWrapper}>
+            <ActivityIndicator color={COLORS.BLACK_COLOR} />
+          </View>
+        )}
         <View style={styles.error}>
           <Text>{error}</Text>
         </View>
@@ -78,8 +86,14 @@ const styles = StyleSheet.create({
   },
   error: {
     flex: 1,
+    justifyContent: 'flex-start',
     alignItems: 'center',
     marginTop: 20,
-    width: '100%',
+  },
+  loadingWrapper: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    marginTop: 20,
   },
 });
