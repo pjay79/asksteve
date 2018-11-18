@@ -3,6 +3,7 @@ import { SafeAreaView, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import * as COLORS from '../config/colors';
 
 export default class EmailScreen extends Component {
   static propTypes = {
@@ -25,7 +26,7 @@ export default class EmailScreen extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <Input
-          placeholder="Enter your github email"
+          placeholder="Enter your github email or username"
           onChangeText={text => this.handleChangeText('email', text)}
           value={email}
         />
@@ -33,7 +34,7 @@ export default class EmailScreen extends Component {
           <Button
             title="Next"
             onPress={() => navigation.navigate('Password', { email })}
-            style={{ backgroundColor: '#BDBDBD' }}
+            style={{ backgroundColor: COLORS.PRIMARY_COLOR }}
           />
         </View>
       </SafeAreaView>
@@ -46,6 +47,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: COLORS.BACKGROUND_COLOR,
   },
 });

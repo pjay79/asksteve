@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { SafeAreaView, View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
+import auth0 from '../services/auth0';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import * as COLORS from '../config/colors';
 
 export default class PasswordScreen extends Component {
   static propTypes = {
@@ -24,8 +26,17 @@ export default class PasswordScreen extends Component {
       const { password } = this.state;
       const { navigation } = this.props;
       const email = navigation.getParam('email');
+      console.log(email, password);
+      await auth0.auth.passwordRealm({
+        username: email,
+        password,
+        realm: 'Username-Password-Authentication',
+        client_id: 'BGleraAIRgOTzjNcEF7hszJEhpMBUn4n',
+        grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
+      });
+      navigation.navigate('AppStack');
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 
@@ -37,12 +48,13 @@ export default class PasswordScreen extends Component {
           placeholder="Enter your github password"
           onChangeText={text => this.handleChangeText('password', text)}
           value={password}
+          secureTextEntry
         />
         <View style={styles.buttonWrapper}>
           <Button
             title="Submit"
             onPress={this.handlePasswordRealm}
-            style={{ backgroundColor: '#BDBDBD' }}
+            style={{ backgroundColor: COLORS.PRIMARY_COLOR }}
           />
         </View>
       </SafeAreaView>
@@ -55,6 +67,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: COLORS.BACKGROUND_COLOR,
   },
 });

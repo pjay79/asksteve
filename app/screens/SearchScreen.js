@@ -17,6 +17,7 @@ import auth0 from '../services/auth0';
 import { gitSearch } from '../services/gitSearch';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import * as COLORS from '../config/colors';
 
 const { width } = Dimensions.get('window');
 
@@ -82,7 +83,7 @@ export default class SearchScreen extends Component {
             <Ionicons
               name={Platform.OS === 'ios' ? 'ios-star' : 'md-star'}
               size={18}
-              color="#F7CF66"
+              color={COLORS.PRIMARY_COLOR}
             />
           </View>
         </View>
@@ -105,7 +106,7 @@ export default class SearchScreen extends Component {
           />
         </View>
         {loading ? (
-          <ActivityIndicator color="#000000" />
+          <ActivityIndicator color={COLORS.BLACK_COLOR} />
         ) : (
           <View style={styles.flatListWrapper}>
             <FlatList
@@ -120,7 +121,7 @@ export default class SearchScreen extends Component {
           <Button
             title="Submit"
             onPress={this.handleSubmit}
-            style={{ backgroundColor: '#4A90E2', marginRight: 5 }}
+            style={{ backgroundColor: COLORS.ACCENT_COLOR, marginRight: 5 }}
           />
           <Button title="Logout" onPress={this.handleLogout} style={{ marginLeft: 5 }} />
         </View>
@@ -134,7 +135,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: COLORS.BACKGROUND_COLOR,
   },
   inputWrapper: {},
   flatListWrapper: {
@@ -175,7 +176,7 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   separator: {
-    backgroundColor: '#BDBDBD',
+    backgroundColor: COLORS.DIVIDER_COLOR,
     height: StyleSheet.hairlineWidth,
   },
 });

@@ -5,6 +5,7 @@ import {
 import PropTypes from 'prop-types';
 import auth0 from '../services/auth0';
 import Button from '../components/Button';
+import * as COLORS from '../config/colors';
 
 export default class HomeScreen extends Component {
   static propTypes = {
@@ -60,7 +61,11 @@ export default class HomeScreen extends Component {
           />
         </View>
         <View style={styles.buttonWrapper}>
-          <Button title="Auth0" onPress={this.handleLogin} style={{ backgroundColor: '#4A90E2', marginRight: 5 }} />
+          <Button
+            title="Auth0"
+            onPress={this.handleLogin}
+            style={{ backgroundColor: COLORS.ACCENT_COLOR, marginRight: 5 }}
+          />
           <Button
             title="GitHub"
             onPress={() => navigation.navigate('Email')}
@@ -77,7 +82,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#F7CF66',
+    backgroundColor: COLORS.PRIMARY_COLOR,
+    paddingTop: 10,
   },
   gitImage: {
     width: 32,

@@ -16,6 +16,7 @@ import moment from 'moment';
 import auth0 from '../services/auth0';
 import { gitSearchCommits } from '../services/gitSearch';
 import Button from '../components/Button';
+import * as COLORS from '../config/colors';
 
 const { width } = Dimensions.get('window');
 
@@ -92,7 +93,7 @@ export default class ResultsScreen extends Component {
       <SafeAreaView style={styles.container}>
         {loading ? (
           <View style={styles.loadingWrapper}>
-            <ActivityIndicator color="#000000" />
+            <ActivityIndicator color={COLORS.BLACK_COLOR} />
           </View>
         ) : (
           <View style={styles.flatListWrapper}>
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: COLORS.BACKGROUND_COLOR,
   },
   loadingWrapper: {
     flex: 1,
@@ -142,7 +143,7 @@ const styles = StyleSheet.create({
   },
   cardHeaderWrapper: {
     flexDirection: 'row',
-    backgroundColor: '#4A90E2',
+    backgroundColor: COLORS.ACCENT_COLOR,
     padding: 10,
     marginVertical: 10,
     borderRadius: 4,
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
     height: 25,
     borderRadius: 4,
     borderWidth: 2,
-    borderColor: '#FFFFFF',
+    borderColor: COLORS.WHITE_COLOR,
   },
   cardDetailsTitleText: {
     fontSize: 18,
@@ -163,14 +164,14 @@ const styles = StyleSheet.create({
   cardDetailsDateText: {
     fontSize: 10,
     fontWeight: '600',
-    color: '#FFFFFF',
+    color: COLORS.WHITE_COLOR,
   },
   cardDetailsMessageText: {
     fontSize: 12,
     fontWeight: '200',
   },
   separator: {
-    backgroundColor: '#BDBDBD',
+    backgroundColor: COLORS.DIVIDER_COLOR,
     height: StyleSheet.hairlineWidth,
   },
 });

@@ -3,6 +3,7 @@ import {
   View, ActivityIndicator, StyleSheet, AsyncStorage,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import * as COLORS from '../config/colors';
 
 export default class LoadingScreen extends Component {
   static propTypes = {
@@ -33,7 +34,7 @@ export default class LoadingScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <ActivityIndicator color="#000000" />
+        <ActivityIndicator color={COLORS.BLACK_COLOR} />
       </View>
     );
   }
@@ -44,6 +45,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F7CF66',
+    backgroundColor: COLORS.PRIMARY_COLOR,
   },
 });
