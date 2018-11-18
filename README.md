@@ -6,12 +6,12 @@ Auth0:
 https://auth0.com/docs/quickstart/native/react-native/00-login  
 https://auth0.com/docs/applications/application-grant-types#how-to-edit-the-client-grant_types-property
 
-react-native-auth0
+react-native-auth0  
 https://github.com/auth0/react-native-auth0
 
 ## .env
 
-AUTH0_DOMAIN=enter-your-auth0-domain-here
+AUTH0_DOMAIN=enter-your-auth0-domain-here  
 AUTH0_CLIENT_ID=enter-your-auth0-client_id-here
 
 ## Issues
