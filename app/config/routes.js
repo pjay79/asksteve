@@ -1,6 +1,6 @@
 import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import HomeScreen from '../screens/HomeScreen';
-import EmailScreen from '../screens/EmailScreen';
+import LoginScreen from '../screens/LoginScreen';
 import PasswordScreen from '../screens/PasswordScreen';
 import LoadingScreen from '../screens/LoadingScreen';
 import SearchScreen from '../screens/SearchScreen';
@@ -14,10 +14,10 @@ const AuthStack = createStackNavigator(
         header: null,
       },
     },
-    Email: {
-      screen: EmailScreen,
+    Login: {
+      screen: LoginScreen,
       navigationOptions: {
-        title: 'Email',
+        title: 'Login',
         headerStyle: {
           backgroundColor: '#F7CF66',
         },

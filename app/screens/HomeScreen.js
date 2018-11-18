@@ -67,7 +67,7 @@ export default class HomeScreen extends Component {
           />
           <Button
             title="GitHub"
-            onPress={() => navigation.navigate('Email')}
+            onPress={() => navigation.navigate('Login')}
             style={{ marginLeft: 5 }}
           />
         </View>

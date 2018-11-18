@@ -5,7 +5,7 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 import * as COLORS from '../config/colors';
 
-export default class EmailScreen extends Component {
+export default class LoginScreen extends Component {
   static propTypes = {
     navigation: PropTypes.shape({
       navigate: PropTypes.func.isRequired,
@@ -13,7 +13,7 @@ export default class EmailScreen extends Component {
   };
 
   state = {
-    email: '',
+    login: '',
   };
 
   handleChangeText = (key, value) => {
@@ -21,19 +21,19 @@ export default class EmailScreen extends Component {
   };
 
   render() {
-    const { email } = this.state;
+    const { login } = this.state;
     const { navigation } = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <Input
           placeholder="Enter your github username or email"
-          onChangeText={text => this.handleChangeText('email', text)}
-          value={email}
+          onChangeText={text => this.handleChangeText('login', text)}
+          value={login}
         />
         <View style={styles.buttonWrapper}>
           <Button
             title="Next"
-            onPress={() => navigation.navigate('Password', { email })}
+            onPress={() => navigation.navigate('Password', { login })}
             style={{ backgroundColor: COLORS.PRIMARY_COLOR }}
           />
         </View>
