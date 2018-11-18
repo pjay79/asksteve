@@ -57,3 +57,6 @@ buck-out/
 
 # Config
 .env
+
+# Snapshots
+__snapshots__
