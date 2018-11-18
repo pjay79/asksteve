@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input renders correctly 1`] = `
+<View>
+  <TextInput
+    allowFontScaling={true}
+    autoCapitalize="none"
+    autoCorrect={false}
+    autoFocus={true}
+    onChangeText={[MockFunction]}
+    placeholder="test@test.com"
+    returnKeyType="done"
+    secureTextEntry={false}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "white",
+          "paddingHorizontal": 10,
+          "paddingVertical": 15,
+          "width": 750,
+        },
+        Object {},
+      ]
+    }
+    underlineColorAndroid="transparent"
+    value="test@test.com"
+  />
+</View>
+`;

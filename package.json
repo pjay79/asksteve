@@ -42,7 +42,7 @@
       "enzyme-to-json/serializer"
     ],
     "setupFiles": [
-      "<rootDir>/config/enzyme.js"
+      "<rootDir>/app/config/enzyme.js"
     ]
   }
 }
