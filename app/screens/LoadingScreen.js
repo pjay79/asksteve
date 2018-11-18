@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import {
-  View, ActivityIndicator, StyleSheet, AsyncStorage,
-} from 'react-native';
+import { SafeAreaView, StyleSheet, AsyncStorage } from 'react-native';
 import PropTypes from 'prop-types';
+import Loading from '../components/Loading';
 import * as COLORS from '../config/colors';
 
 export default class LoadingScreen extends Component {
@@ -33,9 +32,9 @@ export default class LoadingScreen extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <ActivityIndicator color={COLORS.BLACK_COLOR} />
-      </View>
+      <SafeAreaView style={styles.container}>
+        <Loading />
+      </SafeAreaView>
     );
   }
 }
