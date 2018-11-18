@@ -60,7 +60,7 @@ export default class HomeScreen extends Component {
           />
         </View>
         <View style={styles.buttonWrapper}>
-          <Button title="auth0" onPress={this.handleLogin} style={{ backgroundColor: '#4A90E2', marginRight: 5 }} />
+          <Button title="Auth0" onPress={this.handleLogin} style={{ backgroundColor: '#4A90E2', marginRight: 5 }} />
           <Button
             title="GitHub"
             onPress={() => navigation.navigate('Email')}

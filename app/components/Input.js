@@ -18,6 +18,7 @@ const Input = ({
       secureTextEntry={secureTextEntry}
       autoCorrect={false}
       autoCapitalize="none"
+      autoFocus
     />
   </View>
 );

@@ -2,9 +2,10 @@
 
 ## ToDo
 
-- use react-native-auth0 Authentication API for login with passwordRealmGrant with custom form
+- github auth: complete AuthStack / Email / Password login
+- web auth:force full logout
 - add pagination
-- refactor / add components
+- refactor + optimise code
 - testing with Jest / Enzyme
 - import colors from config/styles
 - add ui message if search and results are empty, currently just blank screen is seen

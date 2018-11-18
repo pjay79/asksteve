@@ -1,16 +1,50 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { SafeAreaView, View, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
+import Button from '../components/Button';
+import Input from '../components/Input';
 
 export default class EmailScreen extends Component {
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired,
+    }).isRequired,
+  };
+
+  state = {
+    email: '',
+  };
+
+  handleChangeText = (key, value) => {
+    this.setState({ [key]: value });
+  };
+
   render() {
-    return <View style={styles.container} />;
+    const { email } = this.state;
+    const { navigation } = this.props;
+    return (
+      <SafeAreaView style={styles.container}>
+        <Input
+          placeholder="Enter your github email"
+          onChangeText={text => this.handleChangeText('email', text)}
+          value={email}
+        />
+        <View style={styles.buttonWrapper}>
+          <Button
+            title="Next"
+            onPress={() => navigation.navigate('Password', { email })}
+            style={{ backgroundColor: '#BDBDBD' }}
+          />
+        </View>
+      </SafeAreaView>
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#F5F5F5',
   },
