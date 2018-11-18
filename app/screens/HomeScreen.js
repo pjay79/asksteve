@@ -27,20 +27,19 @@ export default class HomeScreen extends Component {
     navigation.navigate('Search');
   };
 
-  handleLogin = () => {
-    const { navigation } = this.props;
-    auth0.webAuth
-      .authorize({
+  handleLogin = async () => {
+    try {
+      const { navigation } = this.props;
+      const credentials = await auth0.webAuth.authorize({
         scope: 'openid profile email',
         audience: 'https://asksteve.au.auth0.com/userinfo',
         prompt: 'login',
-      })
-      .then((credentials) => {
-        console.log(credentials);
-        AsyncStorage.setItem('accessToken', JSON.stringify(credentials.accessToken));
-        navigation.navigate('Search');
-      })
-      .catch(error => console.log(error));
+      });
+      await AsyncStorage.setItem('accessToken', JSON.stringify(credentials.accessToken));
+      navigation.navigate('Search');
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   render() {
