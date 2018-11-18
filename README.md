@@ -6,5 +6,6 @@
 - add pagination
 - refactor / add components
 - testing with Jest / Enzyme
-- add ui message if search and results are empty, currently just blank screen is seen
 - import colors from config/styles
+- add ui message if search and results are empty, currently just blank screen is seen
+- add style tweaks for android

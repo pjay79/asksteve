@@ -43,6 +43,7 @@ export default class HomeScreen extends Component {
   };
 
   render() {
+    const { navigation } = this.props;
     return (
       <SafeAreaView style={styles.container}>
         <Image
@@ -58,7 +59,14 @@ export default class HomeScreen extends Component {
             source={require('../assets/images/app-logo.png')}
           />
         </View>
-        <Button title="Login" onPress={this.handleLogin} />
+        <View style={styles.buttonWrapper}>
+          <Button title="auth0" onPress={this.handleLogin} style={{ backgroundColor: '#4A90E2', marginRight: 5 }} />
+          <Button
+            title="GitHub"
+            onPress={() => navigation.navigate('Email')}
+            style={{ marginLeft: 5 }}
+          />
+        </View>
       </SafeAreaView>
     );
   }
@@ -85,5 +93,9 @@ const styles = StyleSheet.create({
   },
   headerImage: {
     width: 200,
+  },
+  buttonWrapper: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
   },
 });
