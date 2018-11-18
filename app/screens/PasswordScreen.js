@@ -28,10 +28,10 @@ export default class PasswordScreen extends Component {
     try {
       const { password } = this.state;
       const { navigation } = this.props;
-      const email = navigation.getParam('email');
-      console.log(email, password);
+      const login = navigation.getParam('login');
+      console.log(login, password);
       await auth0.auth.passwordRealm({
-        username: email,
+        username: login,
         password,
         realm: 'Username-Password-Authentication',
         client_id: 'BGleraAIRgOTzjNcEF7hszJEhpMBUn4n',
