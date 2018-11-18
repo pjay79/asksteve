@@ -3,7 +3,7 @@
 ## Setup
 
 Auth0:  
-https://auth0.com/docs/quickstart/native/react-native/00-login
+https://auth0.com/docs/quickstart/native/react-native/00-login  
 https://auth0.com/docs/applications/application-grant-types#how-to-edit-the-client-grant_types-property
 
 react-native-auth0
