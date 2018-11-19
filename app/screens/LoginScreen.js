@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import Button from '../components/Button';
 import Input from '../components/Input';

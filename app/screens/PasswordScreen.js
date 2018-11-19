@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import {
-  SafeAreaView, View, Text, StyleSheet,
-} from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import auth0 from '../services/auth0';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import Loading from '../components/Loading';
+import Error from '../components/Error';
 import * as COLORS from '../config/colors';
 
 export default class PasswordScreen extends Component {
@@ -59,9 +58,7 @@ export default class PasswordScreen extends Component {
           secureTextEntry
         />
         {loading && <Loading />}
-        <View style={styles.error}>
-          <Text>{error}</Text>
-        </View>
+        <Error message={error} />
         <Button
           title="Submit"
           onPress={this.handlePasswordRealm}
