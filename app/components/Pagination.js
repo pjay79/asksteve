@@ -5,13 +5,10 @@ import * as COLORS from '../config/colors';
 
 const Pagination = () => (
   <View style={styles.paginationWrapper}>
-    <TouchableOpacity onPress={() => console.log('Go to first page.')}>
+    <TouchableOpacity onPress={() => console.log('Go to first page.')} style={styles.buttonStyle}>
       <FontAwesome5 name="fast-backward" size={18} color={COLORS.BLACK_COLOR} />
     </TouchableOpacity>
-    <TouchableOpacity
-      onPress={() => console.log('Go to previous page.')}
-      style={styles.buttonStyle}
-    >
+    <TouchableOpacity onPress={() => console.log('Go to prev page.')} style={styles.buttonStyle}>
       <FontAwesome5 name="step-backward" size={18} color={COLORS.BLACK_COLOR} />
     </TouchableOpacity>
     <TouchableOpacity onPress={() => console.log('Go to next page.')} style={styles.buttonStyle}>
