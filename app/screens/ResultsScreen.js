@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+import parse from 'parse-link-header';
 import auth0 from '../services/auth0';
 import { gitSearchCommits } from '../services/gitSearch';
 import Button from '../components/Button';
@@ -30,6 +31,7 @@ export default class ResultsScreen extends Component {
   state = {
     commits: [],
     loading: false,
+    pageLinks: {},
   };
 
   componentDidMount() {
@@ -42,9 +44,11 @@ export default class ResultsScreen extends Component {
       const { navigation } = this.props;
       const repo = navigation.getParam('repo');
       const response = await gitSearchCommits(repo.full_name);
-      this.setState({ commits: response.data.items }, () => {
-        const { commits } = this.state;
-        console.log(commits);
+      const links = response.headers.link;
+      const parsedLinks = parse(links);
+      this.setState({ commits: response.data.items, pageLinks: parsedLinks }, () => {
+        const { commits, pageLinks } = this.state;
+        console.log('Commits: ', commits, 'Page Links: ', pageLinks);
         this.setState({ loading: false });
       });
     } catch (error) {

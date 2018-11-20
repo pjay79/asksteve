@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "moment": "^2.22.2",
+    "parse-link-header": "^1.0.1",
     "prop-types": "^15.6.2",
     "react": "16.6.1",
     "react-native": "0.57.5",

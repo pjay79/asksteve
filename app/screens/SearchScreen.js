@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import parse from 'parse-link-header';
 import auth0 from '../services/auth0';
 import { gitSearch } from '../services/gitSearch';
 import Button from '../components/Button';
@@ -32,6 +33,7 @@ export default class SearchScreen extends Component {
     searchTerm: 'facebook/react-native',
     results: [],
     loading: false,
+    pageLinks: {},
   };
 
   handleChangeText = (key, value) => {
@@ -43,9 +45,11 @@ export default class SearchScreen extends Component {
       this.setState({ loading: true });
       const { searchTerm } = this.state;
       const response = await gitSearch(searchTerm);
-      this.setState({ results: response.data.items }, () => {
-        const { results } = this.state;
-        console.log(results);
+      const links = response.headers.link;
+      const parsedLinks = parse(links);
+      this.setState({ results: response.data.items, pageLinks: parsedLinks }, () => {
+        const { results, pageLinks } = this.state;
+        console.log('Results: ', results, 'Page Links: ', pageLinks);
         this.setState({ loading: false });
       });
     } catch (error) {

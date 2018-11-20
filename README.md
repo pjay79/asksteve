@@ -17,13 +17,13 @@ AUTH0_CLIENT_ID=enter-your-auth0-client_id-here
 ## Issues
 
 - Auth0 web login: will not fully logout session
-- GitHub app login: not working, getting wrong email / password error
+- GitHub app login: not working, getting wrong email / password error, explore Octokit GitHub REST API (?)
 
 ## ToDo
 
 - refactor + optimise code
 - finish testing with Jest / Enzyme
-- add pagination
+- create pagination component with next / last / first / previous icons
 
 ## Screenshots
 
