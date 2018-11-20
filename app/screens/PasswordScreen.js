@@ -39,7 +39,7 @@ export default class PasswordScreen extends Component {
         client_id: 'BGleraAIRgOTzjNcEF7hszJEhpMBUn4n',
         grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
       });
-      this.setState({ loading: true });
+      this.setState({ loading: false });
       navigation.navigate('AppStack');
     } catch (error) {
       console.log(error.message);

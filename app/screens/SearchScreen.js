@@ -18,6 +18,7 @@ import { gitSearch } from '../services/gitSearch';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import Loading from '../components/Loading';
+import Pagination from '../components/Pagination';
 import * as COLORS from '../config/colors';
 
 const { width } = Dimensions.get('window');
@@ -121,6 +122,7 @@ export default class SearchScreen extends Component {
             />
           </View>
         )}
+        <Pagination />
         <View style={styles.buttonWrapper}>
           <Button
             title="Submit"

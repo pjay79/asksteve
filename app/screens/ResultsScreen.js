@@ -17,6 +17,7 @@ import auth0 from '../services/auth0';
 import { gitSearchCommits } from '../services/gitSearch';
 import Button from '../components/Button';
 import Loading from '../components/Loading';
+import Pagination from '../components/Pagination';
 import * as COLORS from '../config/colors';
 
 const { width } = Dimensions.get('window');
@@ -107,6 +108,7 @@ export default class ResultsScreen extends Component {
             />
           </View>
         )}
+        <Pagination />
         <View style={styles.buttonWrapper}>
           <Button title="Logout" onPress={this.handleLogout} style={{ marginLeft: 5 }} />
         </View>
