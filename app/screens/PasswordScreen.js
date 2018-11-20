@@ -36,6 +36,8 @@ export default class PasswordScreen extends Component {
         username: login,
         password,
         realm: 'Username-Password-Authentication',
+        scope: 'openid profile email',
+        connection: 'github',
         client_id: 'BGleraAIRgOTzjNcEF7hszJEhpMBUn4n',
         grant_type: 'http://auth0.com/oauth/grant-type/password-realm',
       });
@@ -75,11 +77,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: COLORS.BACKGROUND_COLOR,
-  },
-  error: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    marginTop: 20,
   },
 });

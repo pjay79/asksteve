@@ -9,6 +9,12 @@ https://auth0.com/docs/applications/application-grant-types#how-to-edit-the-clie
 react-native-auth0  
 https://github.com/auth0/react-native-auth0
 
+## Browser vs Native login:
+
+https://auth0.com/docs/design/browser-based-vs-native-experience-on-mobile
+
+> If your platform supports it, you should use a browser-based login flow where your application presents an in-application (embedded) browser for login and signup. Using an in-application browser gives your application the benefits of browser-based authentication, such as shared authentication state and security context, without disrupting the user experience by switching applications.
+
 ## .env
 
 AUTH0_DOMAIN=enter-your-auth0-domain-here  
@@ -16,8 +22,9 @@ AUTH0_CLIENT_ID=enter-your-auth0-client_id-here
 
 ## Issues
 
-- Auth0 web login: will not fully logout session
+- Auth0 web login: will not fully logout session, but you can force re-open the login screen
 - GitHub app login: not working, getting wrong email / password error, explore Octokit GitHub REST API (?)
+- With some repos, searching for commits returns empty results, or only a few commits
 
 ## ToDo
 

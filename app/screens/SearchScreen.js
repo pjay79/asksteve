@@ -122,13 +122,11 @@ export default class SearchScreen extends Component {
 
     return (
       <SafeAreaView style={styles.container}>
-        <View style={styles.inputWrapper}>
-          <Input
-            placeholder="facebook/react-native"
-            onChangeText={text => this.handleChangeText('searchTerm', text)}
-            value={searchTerm}
-          />
-        </View>
+        <Input
+          placeholder="facebook/react-native"
+          onChangeText={text => this.handleChangeText('searchTerm', text)}
+          value={searchTerm}
+        />
         {loading ? (
           <Loading />
         ) : (
@@ -162,7 +160,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: COLORS.BACKGROUND_COLOR,
   },
-  inputWrapper: {},
   flatListWrapper: {
     flex: 1,
     justifyContent: 'space-between',

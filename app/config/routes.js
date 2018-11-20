@@ -5,6 +5,7 @@ import PasswordScreen from '../screens/PasswordScreen';
 import LoadingScreen from '../screens/LoadingScreen';
 import SearchScreen from '../screens/SearchScreen';
 import ResultsScreen from '../screens/ResultsScreen';
+import * as COLORS from './colors';
 
 const AuthStack = createStackNavigator(
   {
@@ -19,9 +20,9 @@ const AuthStack = createStackNavigator(
       navigationOptions: {
         title: 'Login',
         headerStyle: {
-          backgroundColor: '#F7CF66',
+          backgroundColor: COLORS.PRIMARY_COLOR,
         },
-        headerTintColor: '#000000',
+        headerTintColor: COLORS.BLACK_COLOR,
       },
     },
     Password: {
@@ -29,9 +30,9 @@ const AuthStack = createStackNavigator(
       navigationOptions: {
         title: 'Password',
         headerStyle: {
-          backgroundColor: '#F7CF66',
+          backgroundColor: COLORS.PRIMARY_COLOR,
         },
-        headerTintColor: '#000000',
+        headerTintColor: COLORS.BLACK_COLOR,
       },
     },
   },
@@ -48,9 +49,9 @@ const AppStack = createStackNavigator(
         title: 'Search',
         headerLeft: null,
         headerStyle: {
-          backgroundColor: '#F7CF66',
+          backgroundColor: COLORS.PRIMARY_COLOR,
         },
-        headerTintColor: '#000000',
+        headerTintColor: COLORS.BLACK_COLOR,
       },
     },
     Results: {
@@ -58,9 +59,9 @@ const AppStack = createStackNavigator(
       navigationOptions: ({ navigation }) => ({
         title: navigation.getParam('repo').name,
         headerStyle: {
-          backgroundColor: '#F7CF66',
+          backgroundColor: COLORS.PRIMARY_COLOR,
         },
-        headerTintColor: '#000000',
+        headerTintColor: COLORS.BLACK_COLOR,
       }),
     },
   },
