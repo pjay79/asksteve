@@ -23,7 +23,6 @@ AUTH0_CLIENT_ID=enter-your-auth0-client_id-here
 
 - refactor + optimise code
 - finish testing with Jest / Enzyme
-- create pagination component with next / last / first / previous icons
 
 ## Screenshots
 
