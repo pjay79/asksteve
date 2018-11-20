@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import parse from 'parse-link-header';
 import auth0 from '../services/auth0';
-import { gitSearchCommits } from '../services/gitSearch';
+import { gitSearchCommits, gitSearchPageLink } from '../services/gitSearch';
 import Button from '../components/Button';
 import Loading from '../components/Loading';
 import Pagination from '../components/Pagination';
@@ -30,9 +30,9 @@ export default class ResultsScreen extends Component {
   };
 
   state = {
-    commits: [],
     loading: false,
-    pageLinks: {},
+    commits: [],
+    pageLinks: null,
   };
 
   componentDidMount() {
@@ -45,6 +45,24 @@ export default class ResultsScreen extends Component {
       const { navigation } = this.props;
       const repo = navigation.getParam('repo');
       const response = await gitSearchCommits(repo.full_name);
+      const links = response.headers.link;
+      const parsedLinks = parse(links);
+      this.setState({ commits: response.data.items, pageLinks: parsedLinks }, () => {
+        const { commits, pageLinks } = this.state;
+        console.log('Commits: ', commits, 'Page Links: ', pageLinks);
+        this.setState({ loading: false });
+      });
+    } catch (error) {
+      console.log(error);
+      this.setState({ loading: false });
+    }
+  };
+
+  handlePageLink = async (url) => {
+    try {
+      this.setState({ loading: true });
+      const response = await gitSearchPageLink(url);
+      console.log(response);
       const links = response.headers.link;
       const parsedLinks = parse(links);
       this.setState({ commits: response.data.items, pageLinks: parsedLinks }, () => {
@@ -93,7 +111,7 @@ export default class ResultsScreen extends Component {
   renderSeparator = () => <View style={styles.separator} />;
 
   render() {
-    const { commits, loading } = this.state;
+    const { loading, commits, pageLinks } = this.state;
     return (
       <SafeAreaView style={styles.container}>
         {loading ? (
@@ -108,7 +126,7 @@ export default class ResultsScreen extends Component {
             />
           </View>
         )}
-        <Pagination />
+        {pageLinks && <Pagination pageLinks={pageLinks} onChangePage={this.handlePageLink} />}
         <View style={styles.buttonWrapper}>
           <Button title="Logout" onPress={this.handleLogout} style={{ marginLeft: 5 }} />
         </View>

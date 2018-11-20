@@ -12,6 +12,22 @@ export const gitSearch = async (searchTerm) => {
   }
 };
 
+export const gitSearchPageLink = async (url) => {
+  try {
+    const config = {
+      headers: {
+        Accept: 'application/vnd.github.cloak-preview+json',
+      },
+    };
+    const response = await axios.get(url, config);
+    console.log(response);
+    return response;
+  } catch (error) {
+    console.log(error.response);
+    return null;
+  }
+};
+
 export const gitSearchCommits = async (repoFullName) => {
   try {
     const config = {

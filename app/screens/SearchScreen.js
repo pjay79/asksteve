@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import parse from 'parse-link-header';
 import auth0 from '../services/auth0';
-import { gitSearch } from '../services/gitSearch';
+import { gitSearch, gitSearchPageLink } from '../services/gitSearch';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import Loading from '../components/Loading';
@@ -31,10 +31,10 @@ export default class SearchScreen extends Component {
   };
 
   state = {
+    loading: false,
     searchTerm: 'facebook/react-native',
     results: [],
-    loading: false,
-    pageLinks: {},
+    pageLinks: null,
   };
 
   handleChangeText = (key, value) => {
@@ -46,6 +46,23 @@ export default class SearchScreen extends Component {
       this.setState({ loading: true });
       const { searchTerm } = this.state;
       const response = await gitSearch(searchTerm);
+      const links = response.headers.link;
+      const parsedLinks = parse(links);
+      this.setState({ results: response.data.items, pageLinks: parsedLinks }, () => {
+        const { results, pageLinks } = this.state;
+        console.log('Results: ', results, 'Page Links: ', pageLinks);
+        this.setState({ loading: false });
+      });
+    } catch (error) {
+      console.log(error);
+      this.setState({ loading: false });
+    }
+  };
+
+  handlePageLink = async (url) => {
+    try {
+      this.setState({ loading: true });
+      const response = await gitSearchPageLink(url);
       const links = response.headers.link;
       const parsedLinks = parse(links);
       this.setState({ results: response.data.items, pageLinks: parsedLinks }, () => {
@@ -99,7 +116,9 @@ export default class SearchScreen extends Component {
   renderSeparator = () => <View style={styles.separator} />;
 
   render() {
-    const { searchTerm, results, loading } = this.state;
+    const {
+      loading, searchTerm, results, pageLinks,
+    } = this.state;
 
     return (
       <SafeAreaView style={styles.container}>
@@ -122,7 +141,7 @@ export default class SearchScreen extends Component {
             />
           </View>
         )}
-        <Pagination />
+        {pageLinks && <Pagination pageLinks={pageLinks} onChangePage={this.handlePageLink} />}
         <View style={styles.buttonWrapper}>
           <Button
             title="Submit"
