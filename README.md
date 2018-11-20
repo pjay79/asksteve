@@ -31,5 +31,5 @@ AUTH0_CLIENT_ID=enter-your-auth0-client_id-here
 ![screenshot1a](https://user-images.githubusercontent.com/14052885/48672143-285b0980-eb86-11e8-8680-d698da78f702.png)
 ![screenshot1b](https://user-images.githubusercontent.com/14052885/48672144-28f3a000-eb86-11e8-9b9f-91421b30729a.png)
 ![screenshot2](https://user-images.githubusercontent.com/14052885/48672145-28f3a000-eb86-11e8-895f-bde3c11d0c0e.png)
-![screenshot3](https://user-images.githubusercontent.com/14052885/48672146-28f3a000-eb86-11e8-9948-c9bb1cb0f158.png)
-![screenshot4](https://user-images.githubusercontent.com/14052885/48672147-298c3680-eb86-11e8-9189-431d17242aba.png)
+![screenshot3](https://user-images.githubusercontent.com/14052885/48752082-ae3c9900-ecdb-11e8-9907-6f66d875704b.png)
+![screenshot4](https://user-images.githubusercontent.com/14052885/48752083-aed52f80-ecdb-11e8-878c-acf1670ee386.png)
