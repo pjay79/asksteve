@@ -1,26 +1,22 @@
 import React from 'react';
-import {
-  View, TextInput, StyleSheet, Dimensions,
-} from 'react-native';
+import { TextInput, StyleSheet, Dimensions } from 'react-native';
 import PropTypes from 'prop-types';
 
 const Input = ({
   onChangeText, value, placeholder, secureTextEntry, style,
 }) => (
-  <View>
-    <TextInput
-      placeholder={placeholder}
-      returnKeyType="done"
-      underlineColorAndroid="transparent"
-      style={[styles.inputStyle, style]}
-      onChangeText={onChangeText}
-      value={value}
-      secureTextEntry={secureTextEntry}
-      autoCorrect={false}
-      autoCapitalize="none"
-      autoFocus
-    />
-  </View>
+  <TextInput
+    placeholder={placeholder}
+    returnKeyType="done"
+    underlineColorAndroid="transparent"
+    style={[styles.inputStyle, style]}
+    onChangeText={onChangeText}
+    value={value}
+    secureTextEntry={secureTextEntry}
+    autoCorrect={false}
+    autoCapitalize="none"
+    autoFocus
+  />
 );
 
 const { width } = Dimensions.get('window');

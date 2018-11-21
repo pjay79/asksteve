@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest --verbose --coverage",
+    "test:update": "jest --verbose --coverage --updateSnapshot",
+    "test:watch": "jest --verbose --watch",
+    "coverage": "jest --verbose --coverage && open ./coverage/lcov-report/index.html"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -29,13 +32,14 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
-    "jest": "23.6.0",
+    "jest": "^23.6.0",
     "metro-react-native-babel-preset": "0.49.1",
     "react-dom": "^16.6.3",
     "react-test-renderer": "16.6.1"
   },
   "jest": {
     "preset": "react-native",
+    "cacheDirectory": "./cache",
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     },
@@ -43,7 +47,7 @@
       "enzyme-to-json/serializer"
     ],
     "setupFiles": [
-      "<rootDir>/app/config/enzyme.js"
+      "<rootDir>/app/config/setupTests.js"
     ]
   }
 }

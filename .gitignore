@@ -58,5 +58,7 @@ buck-out/
 # Config
 .env
 
-# Snapshots
+# Testing
 __snapshots__
+cache/
+coverage/

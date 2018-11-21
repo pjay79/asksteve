@@ -3,6 +3,9 @@ import renderer from 'react-test-renderer';
 import Error from '../Error';
 
 test('Error renders correctly', () => {
-  const tree = renderer.create(<Error message="Wrong email or password" />).toJSON();
+  const mockProps = {
+    message: 'Wrong email or password',
+  };
+  const tree = renderer.create(<Error {...mockProps} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
