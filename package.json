@@ -33,6 +33,8 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
+    "jest-enzyme": "^7.0.1",
+    "jsdom": "^13.0.0",
     "metro-react-native-babel-preset": "0.49.1",
     "react-dom": "^16.6.3",
     "react-test-renderer": "16.6.1"
@@ -46,8 +48,10 @@
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ],
-    "setupFiles": [
-      "<rootDir>/app/config/setupTests.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/app/config/setupTests.js",
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/app/screens/__tests__/"
     ]
   }
 }
