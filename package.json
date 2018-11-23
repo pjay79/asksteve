@@ -30,6 +30,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
     "jest": "^23.6.0",
+    "jest-dom": "^2.1.1",
     "metro-react-native-babel-preset": "0.49.1",
     "node-noop": "^1.0.0",
     "react-dom": "^16.6.3",
@@ -40,12 +41,12 @@
   "jest": {
     "preset": "react-native",
     "transform": {
-        "^.+\\.jsx?$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
-      },
-      "testEnvironment": "jsdom",
-      "moduleNameMapper": {
-        "^react-native$": "react-native-web",
-        "^react-art$": "node-noop"
-      }
+      "^.+\\.jsx?$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    },
+    "testEnvironment": "jsdom",
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^react-art$": "node-noop"
+    }
   }
 }

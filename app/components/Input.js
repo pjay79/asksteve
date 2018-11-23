@@ -16,6 +16,7 @@ const Input = ({
     autoCorrect={false}
     autoCapitalize="none"
     autoFocus
+    data-testid="input"
   />
 );
 

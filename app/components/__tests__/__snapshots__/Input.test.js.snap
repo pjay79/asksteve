@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input renders correctly 1`] = `
+exports[`Input Renders correctly 1`] = `
 <input
   autoCapitalize="none"
   autoComplete="on"
@@ -8,6 +8,7 @@ exports[`Input renders correctly 1`] = `
   autoFocus={true}
   className="rn-MozAppearance-97bpaa rn-WebkitAppearance-n1uzsy rn-backgroundColor-14lw9ot rn-borderTopColor-nqhrom rn-borderRightColor-1878er4 rn-borderBottomColor-mbada rn-borderLeftColor-fpul1g rn-borderTopLeftRadius-ou6ah9 rn-borderTopRightRadius-t12b5v rn-borderBottomRightRadius-zmljjp rn-borderBottomLeftRadius-pm2fo rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-fontFamily-14xgk7a rn-fontSize-1b43r93 rn-paddingTop-1qxgc49 rn-paddingRight-1qfoi16 rn-paddingBottom-19yat4t rn-paddingLeft-1hfyk0a rn-resize-1dz5y72 rn-width-16k0tzm"
   data-focusable={true}
+  data-testid="input"
   dir="auto"
   onBlur={[Function]}
   onChange={[Function]}
@@ -15,10 +16,10 @@ exports[`Input renders correctly 1`] = `
   onKeyDown={[Function]}
   onKeyPress={[Function]}
   onSelect={[Function]}
-  placeholder="test@test.com"
+  placeholder="Enter your username"
   readOnly={false}
   spellCheck={false}
   type="text"
-  value="test@test.com"
+  value=""
 />
 `;
