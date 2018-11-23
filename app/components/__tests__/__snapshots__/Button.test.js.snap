@@ -1,53 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button renders correctly 1`] = `
-<View
-  accessible={true}
-  isTVSelectable={true}
+exports[`Button Renders correctly 1`] = `
+<div
+  className="rn-alignItems-1oszu61 rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-cursor-1loqt21 rn-display-6koalj rn-flexShrink-1qe8dj5 rn-flexBasis-1mlwlqe rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-position-bnwqim rn-touchAction-1otgn73 rn-transitionDuration-eafdt9 rn-transitionProperty-1i6wzkk rn-userSelect-lrvibr rn-zIndex-1lgpqti"
+  data-focusable={true}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
   onResponderRelease={[Function]}
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "opacity": 1,
-    }
-  }
+  tabIndex="0"
 >
-  <View
-    style={
-      Array [
-        Object {
-          "backgroundColor": "#000000",
-          "borderRadius": 8,
-          "marginBottom": 5,
-          "paddingBottom": 10,
-          "paddingLeft": 40,
-          "paddingRight": 40,
-          "paddingTop": 10,
-          "width": 300,
-        },
-        Object {},
-      ]
-    }
+  <div
+    className="rn-alignItems-1oszu61 rn-backgroundColor-kemksi rn-borderTopLeftRadius-1vznrp2 rn-borderTopRightRadius-3f7b68 rn-borderBottomRightRadius-nefvgx rn-borderBottomLeftRadius-5qlx7g rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-display-6koalj rn-flexShrink-1qe8dj5 rn-flexBasis-1mlwlqe rn-flexDirection-eqz5dr rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginLeft-11wrixw rn-marginBottom-d0pm55 rn-minHeight-ifefl9 rn-minWidth-bcqeeo rn-paddingBottom-1mi0q7o rn-paddingLeft-116b19x rn-paddingRight-kls4rr rn-paddingTop-m611by rn-position-bnwqim rn-width-1ri6irg rn-zIndex-1lgpqti"
   >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "white",
-            "fontSize": 16,
-            "letterSpacing": 2,
-            "textAlign": "center",
-          },
-          Object {},
-        ]
-      }
+    <div
+      className="rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-color-jwli3a rn-display-1471scf rn-fontFamily-14xgk7a rn-fontSize-ubezar rn-fontStyle-o11vmf rn-fontVariant-ebii48 rn-fontWeight-gul640 rn-letterSpacing-1upy0dh rn-lineHeight-t9a87b rn-marginTop-1mnahxq rn-marginRight-61z16t rn-marginBottom-p1pxzi rn-marginLeft-11wrixw rn-paddingTop-wk8lta rn-paddingRight-9aemit rn-paddingBottom-1mdbw0j rn-paddingLeft-gy4na3 rn-textAlign-q4m81j rn-textDecoration-bauka4 rn-whiteSpace-q42fyq rn-wordWrap-qvutc0"
+      dir="auto"
     >
       Submit
-    </Text>
-  </View>
-</View>
+    </div>
+  </div>
+</div>
 `;

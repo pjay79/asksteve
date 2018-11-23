@@ -60,5 +60,4 @@ buck-out/
 
 # Testing
 __snapshots__
-cache/
 coverage/

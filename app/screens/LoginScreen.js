@@ -29,7 +29,6 @@ export default class LoginScreen extends Component {
           placeholder="Enter your github username or email"
           onChangeText={text => this.handleChangeText('login', text)}
           value={login}
-          testID="input"
         />
         <Button
           title="Next"

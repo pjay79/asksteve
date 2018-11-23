@@ -1,26 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input renders correctly 1`] = `
-<TextInput
+<input
   autoCapitalize="none"
-  autoCorrect={false}
-  autoFocus={false}
-  onChangeText={[MockFunction]}
+  autoComplete="on"
+  autoCorrect="off"
+  autoFocus={true}
+  className="rn-MozAppearance-97bpaa rn-WebkitAppearance-n1uzsy rn-backgroundColor-14lw9ot rn-borderTopColor-nqhrom rn-borderRightColor-1878er4 rn-borderBottomColor-mbada rn-borderLeftColor-fpul1g rn-borderTopLeftRadius-ou6ah9 rn-borderTopRightRadius-t12b5v rn-borderBottomRightRadius-zmljjp rn-borderBottomLeftRadius-pm2fo rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-fontFamily-14xgk7a rn-fontSize-1b43r93 rn-paddingTop-1qxgc49 rn-paddingRight-1qfoi16 rn-paddingBottom-19yat4t rn-paddingLeft-1hfyk0a rn-resize-1dz5y72 rn-width-16k0tzm"
+  data-focusable={true}
+  dir="auto"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyPress={[Function]}
+  onSelect={[Function]}
   placeholder="test@test.com"
-  returnKeyType="done"
-  secureTextEntry={false}
-  style={
-    Array [
-      Object {
-        "backgroundColor": "white",
-        "paddingHorizontal": 10,
-        "paddingVertical": 15,
-        "width": 750,
-      },
-      Object {},
-    ]
-  }
-  underlineColorAndroid="transparent"
+  readOnly={false}
+  spellCheck={false}
+  type="text"
   value="test@test.com"
 />
 `;
