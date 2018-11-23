@@ -9,8 +9,9 @@ fireEvent.press = (node, init) => {
 };
 
 describe('Button', () => {
+  const mockFn = jest.fn();
   const mockProps = {
-    onPress: jest.fn(),
+    onPress: mockFn,
     title: 'Submit',
   };
 
@@ -21,7 +22,7 @@ describe('Button', () => {
 
   it('Is working', () => {
     const { getByText } = render(<Button {...mockProps} />);
-    const button = getByText('Submit');
-    fireEvent.press(button);
+    const buttonNode = getByText('Submit');
+    fireEvent.press(buttonNode);
   });
 });

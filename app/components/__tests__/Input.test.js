@@ -5,10 +5,11 @@ import 'jest-dom/extend-expect';
 import Input from '../Input';
 
 describe('Input', () => {
+  const mockFn = jest.fn();
   const mockProps = {
-    onChangeText: jest.fn(),
+    onChangeText: mockFn,
     placeholder: 'Enter your username',
-    value: '',
+    value: 'Sally',
   };
 
   test('Renders correctly', () => {
@@ -19,6 +20,6 @@ describe('Input', () => {
   it('Is working', () => {
     const { getByTestId } = render(<Input {...mockProps} />);
     const inputNode = getByTestId('input');
-    expect(inputNode).toBeInTheDOM();
+    expect(inputNode.value).toEqual('Sally');
   });
 });

@@ -20,6 +20,6 @@ exports[`Input Renders correctly 1`] = `
   readOnly={false}
   spellCheck={false}
   type="text"
-  value=""
+  value="Sally"
 />
 `;
