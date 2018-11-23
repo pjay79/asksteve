@@ -30,7 +30,7 @@ AUTH0_CLIENT_ID=enter-your-auth0-client_id-here
 ## ToDo
 
 - refactor + optimise code
-- finish testing with Jest / Enzyme
+- finish testing with Jest & react-testing-library
 
 ## Screenshots
 
