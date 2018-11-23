@@ -17,7 +17,7 @@ describe('Input', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('Is working', () => {
+  test('Is working', () => {
     const { getByTestId } = render(<Input {...mockProps} />);
     const inputNode = getByTestId('input');
     expect(inputNode.value).toEqual('Sally');

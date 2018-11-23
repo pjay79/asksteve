@@ -20,7 +20,7 @@ describe('Button', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('Is working', () => {
+  test('Is working', () => {
     const { getByText } = render(<Button {...mockProps} />);
     const buttonNode = getByText('Submit');
     fireEvent.press(buttonNode);
