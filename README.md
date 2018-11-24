@@ -33,7 +33,7 @@ AUTH0_CLIENT_ID=enter-your-auth0-client_id-here
 
 ## Testing - amend Jest preprocessor file for RN 0.57.5
 
-- FYI, the **_ react-native/jest/prepprocessor.js_** needs to be adjusted, set **_inlineRequires_** to **_false_**. Otherwise you will get the following error when working with class components and arrow functions:
+- FYI, the **react-native/jest/prepprocessor.js** needs to be adjusted, set **inlineRequires** to **false**. Otherwise you will get the following error when working with class components and arrow functions:
 
 `TypeError: Cannot read property 'default' of undefined`
 
