@@ -1,8 +1,10 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render } from 'react-testing-library';
 import Loading from '../Loading';
 
-test('Loading renders correctly', () => {
-  const tree = renderer.create(<Loading />).toJSON();
-  expect(tree).toMatchSnapshot();
+describe('Loading', () => {
+  test('Renders correctly', () => {
+    const tree = render(<Loading />);
+    expect(tree).toMatchSnapshot();
+  });
 });

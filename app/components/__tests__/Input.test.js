@@ -1,25 +1,32 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { render } from 'react-testing-library';
+import { render, fireEvent } from 'react-testing-library';
 import 'jest-dom/extend-expect';
 import Input from '../Input';
 
+fireEvent.press = (node, init) => {
+  fireEvent.mouseDown(node, init);
+  fireEvent.mouseUp(node, init);
+};
+
 describe('Input', () => {
-  const mockFn = jest.fn();
+  const mockFn = jest.fn().mockReturnValue('Harry');
   const mockProps = {
     onChangeText: mockFn,
     placeholder: 'Enter your username',
-    value: 'Sally',
+    value: '',
   };
 
   test('Renders correctly', () => {
-    const tree = renderer.create(<Input {...mockProps} />).toJSON();
+    const tree = render(<Input {...mockProps} />);
     expect(tree).toMatchSnapshot();
   });
 
   test('Is working', () => {
-    const { getByTestId } = render(<Input {...mockProps} />);
-    const inputNode = getByTestId('input');
-    expect(inputNode.value).toEqual('Sally');
+    const { getByPlaceholderText } = render(<Input {...mockProps} />);
+    const inputNode = getByPlaceholderText('Enter your username');
+    expect(inputNode.value).toBe('');
+    fireEvent.change(inputNode, { target: { value: 'Harry' } });
+    expect(mockFn).toHaveBeenCalledTimes(1);
+    expect(mockFn.mock.results[0].value).toBe('Harry');
   });
 });

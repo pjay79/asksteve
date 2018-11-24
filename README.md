@@ -25,12 +25,17 @@ AUTH0_CLIENT_ID=enter-your-auth0-client_id-here
 - Auth0 web login: will not fully logout session, but you can force re-open the login screen
 - GitHub app login: not working, getting wrong email / password error, ? explore Octokit GitHub REST API
 - With some repos, searching for commits returns empty results, or only a few commits, ? API limitation
-- Add tests with react-testing-library
 
 ## ToDo
 
 - refactor + optimise code
 - finish testing with Jest & react-testing-library
+
+## Testing - amend Jest preprocessor file for RN 0.57.5
+
+- FYI, the **_ react-native/jest/prepprocessor.js_** needs to be adjusted, set **_inlineRequires_** to **_false_**. Otherwise you will get the following error when working with class components and arrow functions:
+
+`TypeError: Cannot read property 'default' of undefined`
 
 ## Screenshots
 

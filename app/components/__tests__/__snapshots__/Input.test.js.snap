@@ -1,25 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input Renders correctly 1`] = `
-<input
-  autoCapitalize="none"
-  autoComplete="on"
-  autoCorrect="off"
-  autoFocus={true}
-  className="rn-MozAppearance-97bpaa rn-WebkitAppearance-n1uzsy rn-backgroundColor-14lw9ot rn-borderTopColor-nqhrom rn-borderRightColor-1878er4 rn-borderBottomColor-mbada rn-borderLeftColor-fpul1g rn-borderTopLeftRadius-ou6ah9 rn-borderTopRightRadius-t12b5v rn-borderBottomRightRadius-zmljjp rn-borderBottomLeftRadius-pm2fo rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-fontFamily-14xgk7a rn-fontSize-1b43r93 rn-paddingTop-1qxgc49 rn-paddingRight-1qfoi16 rn-paddingBottom-19yat4t rn-paddingLeft-1hfyk0a rn-resize-1dz5y72 rn-width-16k0tzm"
-  data-focusable={true}
-  data-testid="input"
-  dir="auto"
-  onBlur={[Function]}
-  onChange={[Function]}
-  onFocus={[Function]}
-  onKeyDown={[Function]}
-  onKeyPress={[Function]}
-  onSelect={[Function]}
-  placeholder="Enter your username"
-  readOnly={false}
-  spellCheck={false}
-  type="text"
-  value="Sally"
-/>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <input
+        autocapitalize="none"
+        autocomplete="on"
+        autocorrect="off"
+        class="rn-MozAppearance-97bpaa rn-WebkitAppearance-n1uzsy rn-backgroundColor-14lw9ot rn-borderTopColor-nqhrom rn-borderRightColor-1878er4 rn-borderBottomColor-mbada rn-borderLeftColor-fpul1g rn-borderTopLeftRadius-ou6ah9 rn-borderTopRightRadius-t12b5v rn-borderBottomRightRadius-zmljjp rn-borderBottomLeftRadius-pm2fo rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-fontFamily-14xgk7a rn-fontSize-1b43r93 rn-paddingTop-1qxgc49 rn-paddingRight-1qfoi16 rn-paddingBottom-19yat4t rn-paddingLeft-1hfyk0a rn-resize-1dz5y72 rn-width-16k0tzm rn-focusVisible-errtx7"
+        data-focusable="true"
+        dir="auto"
+        placeholder="Enter your username"
+        spellcheck="false"
+        type="text"
+        value=""
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <input
+      autocapitalize="none"
+      autocomplete="on"
+      autocorrect="off"
+      class="rn-MozAppearance-97bpaa rn-WebkitAppearance-n1uzsy rn-backgroundColor-14lw9ot rn-borderTopColor-nqhrom rn-borderRightColor-1878er4 rn-borderBottomColor-mbada rn-borderLeftColor-fpul1g rn-borderTopLeftRadius-ou6ah9 rn-borderTopRightRadius-t12b5v rn-borderBottomRightRadius-zmljjp rn-borderBottomLeftRadius-pm2fo rn-borderTopStyle-1efd50x rn-borderRightStyle-14skgim rn-borderBottomStyle-rull8r rn-borderLeftStyle-mm0ijv rn-borderTopWidth-13yce4e rn-borderRightWidth-fnigne rn-borderBottomWidth-ndvcnb rn-borderLeftWidth-gxnn5r rn-boxSizing-deolkf rn-fontFamily-14xgk7a rn-fontSize-1b43r93 rn-paddingTop-1qxgc49 rn-paddingRight-1qfoi16 rn-paddingBottom-19yat4t rn-paddingLeft-1hfyk0a rn-resize-1dz5y72 rn-width-16k0tzm rn-focusVisible-errtx7"
+      data-focusable="true"
+      dir="auto"
+      placeholder="Enter your username"
+      spellcheck="false"
+      type="text"
+      value=""
+    />
+  </div>,
+  "debug": [Function],
+  "getAllByAltText": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllBySelectText": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getAllByValue": [Function],
+  "getByAltText": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getBySelectText": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "getByValue": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllBySelectText": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryAllByValue": [Function],
+  "queryByAltText": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryBySelectText": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "queryByValue": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

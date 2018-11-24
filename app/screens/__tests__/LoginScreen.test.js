@@ -1,27 +1,27 @@
 import React from 'react';
 import { render, fireEvent } from 'react-testing-library';
-import Button from '../Button';
+import 'jest-dom/extend-expect';
+import LoginScreen from '../LoginScreen';
 
 fireEvent.press = (node, init) => {
   fireEvent.mouseDown(node, init);
   fireEvent.mouseUp(node, init);
 };
 
-describe('Button', () => {
-  const mockFn = jest.fn();
+describe('LoginScreen', () => {
+  const mockFn = jest.fn().mockReturnValue('bob23');
   const mockProps = {
-    onPress: mockFn,
-    title: 'Submit',
+    navigation: { navigate: mockFn },
   };
 
   test('Renders correctly', () => {
-    const tree = render(<Button {...mockProps} />);
+    const tree = render(<LoginScreen {...mockProps} />);
     expect(tree).toMatchSnapshot();
   });
 
   test('Is working', () => {
-    const { getByText } = render(<Button {...mockProps} />);
-    const buttonNode = getByText('Submit');
+    const { getByText } = render(<LoginScreen {...mockProps} />);
+    const buttonNode = getByText('Next');
     fireEvent.press(buttonNode);
     expect(mockFn).toHaveBeenCalledTimes(1);
   });

@@ -1,12 +1,16 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render } from 'react-testing-library';
 import Pagination from '../Pagination';
 
-test('Pagination renders correctly', () => {
+describe('Pagination', () => {
+  const mockFn = jest.fn();
   const mockProps = {
-    onChangePage: jest.fn(),
+    onChangePage: mockFn,
     pageLinks: {},
   };
-  const tree = renderer.create(<Pagination {...mockProps} />).toJSON();
-  expect(tree).toMatchSnapshot();
+
+  test('Renders correctly', () => {
+    const tree = render(<Pagination {...mockProps} />);
+    expect(tree).toMatchSnapshot();
+  });
 });
