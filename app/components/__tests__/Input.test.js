@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, fireEvent } from 'react-testing-library';
-import 'jest-dom/extend-expect';
 import Input from '../Input';
 
 fireEvent.press = (node, init) => {

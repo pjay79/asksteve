@@ -43,6 +43,7 @@
     "transform": {
       "^.+\\.jsx?$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     },
+    "setupTestFrameworkScriptFile": "<rootDir>app/config/setupTests.js",
     "testEnvironment": "jsdom",
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
