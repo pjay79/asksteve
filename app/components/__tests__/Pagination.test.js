@@ -1,6 +1,11 @@
 import React from 'react';
-import { render } from 'react-testing-library';
+import { render, fireEvent } from 'react-testing-library';
 import Pagination from '../Pagination';
+
+fireEvent.press = (node, init) => {
+  fireEvent.mouseDown(node, init);
+  fireEvent.mouseUp(node, init);
+};
 
 describe('Pagination', () => {
   const mockFn = jest.fn();
@@ -27,5 +32,12 @@ describe('Pagination', () => {
     const iconLast = getByTestId('iconLast');
     icons.push.apply(icons, [iconFirst, iconPrev, iconNext, iconLast]);
     expect(icons).toBeDefined();
+  });
+
+  test('Icon is clickable', () => {
+    const { getByTestId } = render(<Pagination {...mockProps} />);
+    const iconNode = getByTestId('iconNext');
+    fireEvent.press(iconNode);
+    expect(mockFn).toHaveBeenCalled();
   });
 });

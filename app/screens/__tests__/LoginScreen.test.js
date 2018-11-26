@@ -22,6 +22,6 @@ describe('LoginScreen', () => {
     const { getByText } = render(<LoginScreen {...mockProps} />);
     const buttonNode = getByText('Next');
     fireEvent.press(buttonNode);
-    expect(mockFn).toHaveBeenCalledTimes(1);
+    expect(mockFn).toHaveBeenCalled();
   });
 });
