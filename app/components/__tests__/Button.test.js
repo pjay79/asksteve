@@ -23,6 +23,6 @@ describe('Button', () => {
     const { getByText } = render(<Button {...mockProps} />);
     const buttonNode = getByText('Submit');
     fireEvent.press(buttonNode);
-    expect(mockFn).toHaveBeenCalledTimes(1);
+    expect(mockFn).toHaveBeenCalled();
   });
 });

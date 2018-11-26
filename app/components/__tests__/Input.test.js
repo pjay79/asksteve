@@ -25,7 +25,7 @@ describe('Input', () => {
     const inputNode = getByPlaceholderText('Enter your username');
     expect(inputNode.value).toBe('');
     fireEvent.change(inputNode, { target: { value: 'Harry' } });
-    expect(mockFn).toHaveBeenCalledTimes(1);
+    expect(mockFn).toHaveBeenCalled();
     expect(mockFn.mock.results[0].value).toBe('Harry');
   });
 });
