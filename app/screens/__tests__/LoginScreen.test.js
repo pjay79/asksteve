@@ -8,7 +8,7 @@ fireEvent.press = (node, init) => {
 };
 
 describe('LoginScreen', () => {
-  const mockFn = jest.fn().mockReturnValue('bob23');
+  const mockFn = jest.fn();
   const mockProps = {
     navigation: { navigate: mockFn },
   };

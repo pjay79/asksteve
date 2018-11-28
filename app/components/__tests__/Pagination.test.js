@@ -18,6 +18,7 @@ describe('Pagination', () => {
       last: 'https://www.github.com/user/repo/url&last',
     },
   };
+
   test('Renders correctly', () => {
     const tree = render(<Pagination {...mockProps} />);
     expect(tree).toMatchSnapshot();
