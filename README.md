@@ -25,6 +25,7 @@ AUTH0_CLIENT_ID=enter-your-auth0-client_id-here
 - Auth0 web login: will not fully logout session, but you can force re-open the login screen
 - GitHub app login: not working, getting wrong email / password error, ? explore Octokit GitHub REST API
 - With some repos, searching for commits returns empty results, or only a few commits, ? API limitation
+- logout not working android, issue with handling deep links on android
 
 ## ToDo
 

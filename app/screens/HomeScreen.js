@@ -31,6 +31,7 @@ export default class HomeScreen extends Component {
     } else {
       Linking.addEventListener('url', this.handleOpenURL);
     }
+    Linking.addEventListener('url', this.handleOpenURL);
   }
 
   componentWillUnmount() {
