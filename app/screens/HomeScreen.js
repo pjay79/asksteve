@@ -54,7 +54,7 @@ export default class HomeScreen extends Component {
           source={require('../assets/images/GitHub-Mark.png')}
         />
         <View style={styles.headerWrapper}>
-          <Text style={styles.headerText}>GitSearch</Text>
+          <Text style={styles.headerText}>Git Lookup</Text>
           <Image
             style={styles.headerImage}
             resizeMode="contain"

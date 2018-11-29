@@ -21,9 +21,9 @@ export default class LoadingScreen extends Component {
       const token = await AsyncStorage.getItem('accessToken');
       console.log('token: ', token);
       if (token) {
-        navigation.navigate('Search');
-      } else {
         navigation.navigate('App');
+      } else {
+        navigation.navigate('Auth');
       }
     } catch (error) {
       console.log(error);
