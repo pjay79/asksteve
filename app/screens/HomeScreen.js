@@ -3,6 +3,7 @@ import {
   SafeAreaView, View, Text, Image, StyleSheet, AsyncStorage, Linking,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import SplashScreen from 'react-native-splash-screen';
 import auth0 from '../services/auth0';
 import Button from '../components/Button';
 import * as COLORS from '../config/colors';
@@ -16,6 +17,7 @@ export default class HomeScreen extends Component {
 
   componentDidMount() {
     Linking.addEventListener('url', this.handleOpenURL);
+    SplashScreen.hide();
   }
 
   componentWillUnmount() {

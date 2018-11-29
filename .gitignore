@@ -28,6 +28,8 @@ build/
 .idea
 .gradle
 local.properties
+gradle.properties
+app/my-release-key.keystore
 *.iml
 
 # node.js
@@ -40,17 +42,6 @@ yarn-error.log
 buck-out/
 \.buckd/
 *.keystore
-
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
-
-*/fastlane/report.xml
-*/fastlane/Preview.html
-*/fastlane/screenshots
 
 # Bundle artifact
 *.jsbundle

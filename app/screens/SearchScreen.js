@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import SplashScreen from 'react-native-splash-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import parse from 'parse-link-header';
 import auth0 from '../services/auth0';
@@ -36,6 +37,10 @@ export default class SearchScreen extends Component {
     results: [],
     pageLinks: null,
   };
+
+  componentDidMount() {
+    SplashScreen.hide();
+  }
 
   handleChangeText = (key, value) => {
     this.setState({ [key]: value });
