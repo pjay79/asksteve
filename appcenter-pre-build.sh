@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Creates an .env from ENV variables for use with react-native-config
-ENV_WHITELIST=${ENV_WHITELIST:-"^RN"}
+ENV_WHITELIST=${ENV_WHITELIST:-"^AUTH0"}
 printf "Creating an .env file with the following whitelist:\n"
 printf "%s\n\n" $ENV_WHITELIST
 set | egrep -e $ENV_WHITELIST | egrep -v "^_" | egrep -v "WHITELIST" > .env
