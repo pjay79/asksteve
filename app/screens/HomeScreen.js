@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import {
-  SafeAreaView, View, Text, Image, StyleSheet, AsyncStorage, Linking,
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  AsyncStorage,
+  Linking,
+  Platform,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import SplashScreen from 'react-native-splash-screen';
@@ -16,8 +23,14 @@ export default class HomeScreen extends Component {
   };
 
   componentDidMount() {
-    Linking.addEventListener('url', this.handleOpenURL);
     SplashScreen.hide();
+    if (Platform.OS === 'android') {
+      Linking.getInitialURL().then(() => {
+        this.handleOpenURL();
+      });
+    } else {
+      Linking.addEventListener('url', this.handleOpenURL);
+    }
   }
 
   componentWillUnmount() {
@@ -26,7 +39,7 @@ export default class HomeScreen extends Component {
 
   handleOpenURL = () => {
     const { navigation } = this.props;
-    navigation.navigate('Search');
+    navigation.navigate('App');
   };
 
   handleLogin = async () => {
