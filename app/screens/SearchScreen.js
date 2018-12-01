@@ -88,7 +88,6 @@ export default class SearchScreen extends Component {
       if (Platform.os === 'ios') {
         await auth0.webAuth.clearSession();
       }
-      await auth0.webAuth.clearSession();
       navigation.navigate('Home');
     } catch (error) {
       console.log(error);
