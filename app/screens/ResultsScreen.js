@@ -7,15 +7,11 @@ import {
   Image,
   StyleSheet,
   Dimensions,
-  AsyncStorage,
-  Platform,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import parse from 'parse-link-header';
-import auth0 from '../services/auth0';
 import { gitSearchCommits, gitSearchPageLink } from '../services/gitSearch';
-import Button from '../components/Button';
 import Loading from '../components/Loading';
 import Pagination from '../components/Pagination';
 import * as COLORS from '../config/colors';
@@ -76,19 +72,6 @@ export default class ResultsScreen extends Component {
     }
   };
 
-  handleLogout = async () => {
-    const { navigation } = this.props;
-    try {
-      await AsyncStorage.removeItem('accessToken');
-      if (Platform.os === 'ios') {
-        await auth0.webAuth.clearSession();
-      }
-      navigation.navigate('Home');
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   keyExtractor = item => item.url;
 
   renderItem = ({ item }) => (
@@ -127,9 +110,6 @@ export default class ResultsScreen extends Component {
           </View>
         )}
         {pageLinks && <Pagination pageLinks={pageLinks} onChangePage={this.handlePageLink} />}
-        <View style={styles.buttonWrapper}>
-          <Button title="Logout" onPress={this.handleLogout} style={{ marginLeft: 5 }} />
-        </View>
       </SafeAreaView>
     );
   }
@@ -145,11 +125,6 @@ const styles = StyleSheet.create({
   flatListWrapper: {
     flex: 1,
     justifyContent: 'space-between',
-  },
-  buttonWrapper: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    marginTop: 5,
   },
   card: {
     justifyContent: 'space-between',

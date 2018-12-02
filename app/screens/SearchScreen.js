@@ -7,14 +7,12 @@ import {
   StyleSheet,
   Dimensions,
   Platform,
-  AsyncStorage,
   TouchableOpacity,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import SplashScreen from 'react-native-splash-screen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import parse from 'parse-link-header';
-import auth0 from '../services/auth0';
 import { gitSearch, gitSearchPageLink } from '../services/gitSearch';
 import Button from '../components/Button';
 import Input from '../components/Input';
@@ -81,19 +79,6 @@ export default class SearchScreen extends Component {
     }
   };
 
-  handleLogout = async () => {
-    try {
-      const { navigation } = this.props;
-      await AsyncStorage.removeItem('accessToken');
-      if (Platform.os === 'ios') {
-        await auth0.webAuth.clearSession();
-      }
-      navigation.navigate('Home');
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   keyExtractor = item => item.id.toString();
 
   renderItem = ({ item }) => {
@@ -149,9 +134,8 @@ export default class SearchScreen extends Component {
           <Button
             title="Submit"
             onPress={this.handleSubmit}
-            style={{ backgroundColor: COLORS.ACCENT_COLOR, marginRight: 5 }}
+            style={{ backgroundColor: COLORS.ACCENT_COLOR, marginRight: 5, marginBottom: 20 }}
           />
-          <Button title="Logout" onPress={this.handleLogout} style={{ marginLeft: 5 }} />
         </View>
       </SafeAreaView>
     );

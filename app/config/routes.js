@@ -1,7 +1,5 @@
 import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
 import HomeScreen from '../screens/HomeScreen';
-import LoginScreen from '../screens/LoginScreen';
-import PasswordScreen from '../screens/PasswordScreen';
 import LoadingScreen from '../screens/LoadingScreen';
 import SearchScreen from '../screens/SearchScreen';
 import ResultsScreen from '../screens/ResultsScreen';
@@ -13,26 +11,6 @@ const AuthStack = createStackNavigator(
       screen: HomeScreen,
       navigationOptions: {
         header: null,
-      },
-    },
-    Login: {
-      screen: LoginScreen,
-      navigationOptions: {
-        title: 'Login',
-        headerStyle: {
-          backgroundColor: COLORS.PRIMARY_COLOR,
-        },
-        headerTintColor: COLORS.BLACK_COLOR,
-      },
-    },
-    Password: {
-      screen: PasswordScreen,
-      navigationOptions: {
-        title: 'Password',
-        headerStyle: {
-          backgroundColor: COLORS.PRIMARY_COLOR,
-        },
-        headerTintColor: COLORS.BLACK_COLOR,
       },
     },
   },
